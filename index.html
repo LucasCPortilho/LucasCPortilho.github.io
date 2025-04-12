@@ -38,31 +38,40 @@
       <button id="darkModeToggle">Modo Escuro</button>
     </header>
 
-    <div class="add-transaction">
-      <h2>Adicionar Transação</h2>
-      <input type="text" id="description" placeholder="Descrição (ex: Salário)">
-      <input type="number" id="amount" placeholder="Valor (R$)">
-      <select id="type">
-        <option value="income">Receita</option>
-        <option value="expense">Despesa</option>
-      </select>
-      <button id="addBtn">Adicionar</button>
-    </div>
+    function addTransaction(e) {
+  e.preventDefault();
+  
+  const description = descriptionInput.value.trim();
+  const amount = parseFloat(amountInput.value);
+  const type = document.querySelector('input[name="type"]:checked').value;
+  const categoryId = parseInt(document.getElementById('category').value);
 
-    <div class="summary">
-      <div class="card">
-        <h3>Saldo Total</h3>
-        <p id="balance">R$ 0,00</p>
-      </div>
-      <div class="card">
-        <h3>Receitas</h3>
-        <p id="income" class="positive">R$ 0,00</p>
-      </div>
-      <div class="card">
-        <h3>Despesas</h3>
-        <p id="expense" class="negative">R$ 0,00</p>
-      </div>
-    </div>
+  if (description && !isNaN(amount) && amount > 0) {
+    const category = categories.find(c => c.id === categoryId);
+    
+    const transaction = {
+      id: Date.now(),
+      description,
+      amount,
+      type,
+      category: category || categories[categories.length - 1], // Default: "Outros"
+      date: new Date().toISOString()
+    };
+
+    transactions.push(transaction);
+    updateLocalStorage();
+    updateUI();
+    transactionForm.reset();
+    descriptionInput.focus();
+    
+    // Atualizar metas se for uma economia
+    if (type === 'income') {
+      updateSavingsGoal(amount);
+    }
+  } else {
+    alert('Por favor, preencha todos os campos corretamente!');
+  }
+}
 
     <div class="chart-container">
       <canvas id="myChart"></canvas>
