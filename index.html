@@ -3,84 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minhas Finanças</title>
-  <link rel="stylesheet" href="style.css">
+  <title>MyMoney | Controle Financeiro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-
-  <!-- Seção de Metas -->
-<section class="card goals-section">
-  <h2><i class="fas fa-bullseye"></i> Metas Financeiras</h2>
-  <div class="goals-container">
-    <div class="goal-card">
-      <h3>Economia Mensal</h3>
-      <div class="goal-progress">
-        <div class="progress-bar" id="savingsProgress"></div>
-        <span id="savingsText">R$ 0/R$ 0</span>
-      </div>
-      <input type="number" id="monthlyGoal" placeholder="Valor da meta (R$)">
-      <button id="setGoalBtn">Definir Meta</button>
-    </div>
-  </div>
-</section>
-
-<!-- Seção de Exportação -->
-<section class="card export-section">
-  <h2><i class="fas fa-file-export"></i> Exportar Dados</h2>
-  <button id="exportCSV" class="export-btn">
-    <i class="fas fa-download"></i> Exportar para CSV
-  </button>
-</section>
 <body>
-  <div class="container">
-    <header>
-      <h1>💰 Meu Controle Financeiro</h1>
-      <button id="darkModeToggle">Modo Escuro</button>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo">
+        <i class="fas fa-wallet"></i>
+        <h1>MyMoney</h1>
+      </div>
+      <button id="darkModeToggle" aria-label="Alternar modo escuro">
+        <i class="fas fa-moon"></i>
+      </button>
     </header>
 
-    function addTransaction(e) {
-  e.preventDefault();
-  
-  const description = descriptionInput.value.trim();
-  const amount = parseFloat(amountInput.value);
-  const type = document.querySelector('input[name="type"]:checked').value;
-  const categoryId = parseInt(document.getElementById('category').value);
+    <main class="app-main">
+      <section class="card add-transaction">
+        <h2><i class="fas fa-plus-circle"></i> Nova Transação</h2>
+        <form id="transactionForm">
+          <div class="input-group">
+            <label for="description">Descrição</label>
+            <input type="text" id="description" placeholder="Aluguel, Salário..." required>
+          </div>
+          
+          <div class="input-group">
+            <label for="amount">Valor (R$)</label>
+            <input type="number" id="amount" step="0.01" placeholder="1500,00" required>
+          </div>
 
-  if (description && !isNaN(amount) && amount > 0) {
-    const category = categories.find(c => c.id === categoryId);
-    
-    const transaction = {
-      id: Date.now(),
-      description,
-      amount,
-      type,
-      category: category || categories[categories.length - 1], // Default: "Outros"
-      date: new Date().toISOString()
-    };
+          <select id="category" class="category-select">
+            <option value="1">Alimentação</option>
+            <option value="2">Transporte</option>
+            <option value="3">Moradia</option>
+            <option value="4">Lazer</option>
+            <option value="5">Saúde</option>
+            <option value="6">Educação</option>
+            <option value="7">Salário</option>
+            <option value="8">Outros</option>
+          </select>
 
-    transactions.push(transaction);
-    updateLocalStorage();
-    updateUI();
-    transactionForm.reset();
-    descriptionInput.focus();
-    
-    // Atualizar metas se for uma economia
-    if (type === 'income') {
-      updateSavingsGoal(amount);
-    }
-  } else {
-    alert('Por favor, preencha todos os campos corretamente!');
-  }
-}
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="type" value="income" checked>
+              <span class="radio-button income-radio">
+                <i class="fas fa-arrow-down"></i> Receita
+              </span>
+            </label>
+            
+            <label>
+              <input type="radio" name="type" value="expense">
+              <span class="radio-button expense-radio">
+                <i class="fas fa-arrow-up"></i> Despesa
+              </span>
+            </label>
+          </div>
 
-    <div class="chart-container">
-      <canvas id="myChart"></canvas>
-    </div>
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-check"></i> Confirmar
+          </button>
+        </form>
+      </section>
 
-    <div class="transactions">
-      <h2>Histórico</h2>
-      <ul id="transactionList"></ul>
-    </div>
+      <section class="card summary-cards">
+        <div class="summary-card balance">
+          <h3>Saldo Total</h3>
+          <p id="balance">R$ 0,00</p>
+          <i class="fas fa-balance-scale"></i>
+        </div>
+        
+        <div class="summary-card income">
+          <h3>Receitas</h3>
+          <p id="income">R$ 0,00</p>
+          <i class="fas fa-hand-holding-usd"></i>
+        </div>
+        
+        <div class="summary-card expense">
+          <h3>Despesas</h3>
+          <p id="expense">R$ 0,00</p>
+          <i class="fas fa-shopping-bag"></i>
+        </div>
+      </section>
+
+      <section class="card chart-container">
+        <h2><i class="fas fa-chart-pie"></i> Análise Mensal</h2>
+        <canvas id="myChart"></canvas>
+      </section>
+
+      <section class="card transactions">
+        <h2><i class="fas fa-history"></i> Histórico</h2>
+        <div class="transaction-filters">
+          <button class="filter-btn active" data-filter="all">Todas</button>
+          <button class="filter-btn" data-filter="income">Receitas</button>
+          <button class="filter-btn" data-filter="expense">Despesas</button>
+        </div>
+        <ul id="transactionList"></ul>
+      </section>
+
+      <section class="card goals-section">
+        <h2><i class="fas fa-bullseye"></i> Metas Financeiras</h2>
+        <div class="goals-container">
+          <div class="goal-card">
+            <h3>Economia Mensal</h3>
+            <div class="goal-progress">
+              <div class="progress-bar" id="savingsProgress"></div>
+              <span id="savingsText">R$ 0/R$ 0</span>
+            </div>
+            <input type="number" id="monthlyGoal" placeholder="Valor da meta (R$)">
+            <button id="setGoalBtn">Definir Meta</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card export-section">
+        <h2><i class="fas fa-file-export"></i> Exportar Dados</h2>
+        <button id="exportCSV" class="export-btn">
+          <i class="fas fa-download"></i> Exportar para CSV
+        </button>
+      </section>
+    </main>
   </div>
 
   <script src="script.js"></script>
