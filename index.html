@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Finanças</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>💰 Meu Controle Financeiro</h1>
+      <button id="darkModeToggle">Modo Escuro</button>
+    </header>
+
+    <div class="add-transaction">
+      <h2>Adicionar Transação</h2>
+      <input type="text" id="description" placeholder="Descrição (ex: Salário)">
+      <input type="number" id="amount" placeholder="Valor (R$)">
+      <select id="type">
+        <option value="income">Receita</option>
+        <option value="expense">Despesa</option>
+      </select>
+      <button id="addBtn">Adicionar</button>
+    </div>
+
+    <div class="summary">
+      <div class="card">
+        <h3>Saldo Total</h3>
+        <p id="balance">R$ 0,00</p>
+      </div>
+      <div class="card">
+        <h3>Receitas</h3>
+        <p id="income" class="positive">R$ 0,00</p>
+      </div>
+      <div class="card">
+        <h3>Despesas</h3>
+        <p id="expense" class="negative">R$ 0,00</p>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <div class="transactions">
+      <h2>Histórico</h2>
+      <ul id="transactionList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
