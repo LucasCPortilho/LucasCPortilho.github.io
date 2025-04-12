@@ -105,3 +105,74 @@ input, select {
   padding: 10px;
   border-bottom: 1px solid #eee;
 }
+
+/* Seção de Categorias */
+.category-select {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  color: var(--text);
+}
+
+/* Seção de Metas */
+.goals-container {
+  display: grid;
+  gap: 20px;
+}
+
+.goal-card {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: var(--border);
+  border-radius: 5px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.progress-bar div {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), #8e24aa);
+  border-radius: 5px;
+  transition: width 0.3s;
+}
+
+/* Seção de Exportação */
+.export-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.3s;
+}
+
+.export-btn:hover {
+  background-color: var(--primary-light);
+}
+
+/* Tags de Categoria */
+.category-tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  margin-left: 8px;
+  background-color: var(--primary-light);
+  color: white;
+}
