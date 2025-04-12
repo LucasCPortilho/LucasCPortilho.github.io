@@ -1,6 +1,24 @@
 // Dados iniciais
 let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 
+// Categorias disponíveis
+const categories = [
+  { id: 1, name: "Alimentação", icon: "fa-utensils" },
+  { id: 2, name: "Transporte", icon: "fa-car" },
+  { id: 3, name: "Moradia", icon: "fa-home" },
+  { id: 4, name: "Lazer", icon: "fa-gamepad" },
+  { id: 5, name: "Saúde", icon: "fa-heartbeat" },
+  { id: 6, name: "Educação", icon: "fa-book" },
+  { id: 7, name: "Salário", icon: "fa-money-bill-wave" },
+  { id: 8, name: "Outros", icon: "fa-ellipsis-h" }
+];
+
+// Metas
+let financialGoals = JSON.parse(localStorage.getItem('financialGoals')) || {
+  monthlySavings: 0,
+  currentSavings: 0
+};
+
 // Elementos do DOM
 const transactionForm = document.querySelector('.add-transaction');
 const descriptionInput = document.getElementById('description');
