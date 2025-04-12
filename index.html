@@ -7,6 +7,30 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
+  <!-- Seção de Metas -->
+<section class="card goals-section">
+  <h2><i class="fas fa-bullseye"></i> Metas Financeiras</h2>
+  <div class="goals-container">
+    <div class="goal-card">
+      <h3>Economia Mensal</h3>
+      <div class="goal-progress">
+        <div class="progress-bar" id="savingsProgress"></div>
+        <span id="savingsText">R$ 0/R$ 0</span>
+      </div>
+      <input type="number" id="monthlyGoal" placeholder="Valor da meta (R$)">
+      <button id="setGoalBtn">Definir Meta</button>
+    </div>
+  </div>
+</section>
+
+<!-- Seção de Exportação -->
+<section class="card export-section">
+  <h2><i class="fas fa-file-export"></i> Exportar Dados</h2>
+  <button id="exportCSV" class="export-btn">
+    <i class="fas fa-download"></i> Exportar para CSV
+  </button>
+</section>
 <body>
   <div class="container">
     <header>
