@@ -13,6 +13,105 @@ const categories = [
   { id: 8, name: "Outros", icon: "fa-ellipsis-h" }
 ];
 
+function addTransaction(e) {
+  e.preventDefault();
+  
+  const description = descriptionInput.value.trim();
+  const amount = parseFloat(amountInput.value);
+  const type = document.querySelector('input[name="type"]:checked').value;
+  const categoryId = parseInt(document.getElementById('category').value);
+
+  if (description && !isNaN(amount) && amount > 0) {
+    const category = categories.find(c => c.id === categoryId);
+    
+    const transaction = {
+      id: Date.now(),
+      description,
+      amount,
+      type,
+      category: category || categories[categories.length - 1], // Default: "Outros"
+      date: new Date().toISOString()
+    };
+
+    transactions.push(transaction);
+    updateLocalStorage();
+    updateUI();
+    transactionForm.reset();
+    descriptionInput.focus();
+    
+    // Atualizar metas se for uma economia
+    if (type === 'income') {
+      updateSavingsGoal(amount);
+    }
+  } else {
+    alert('Por favor, preencha todos os campos corretamente!');
+  }
+}
+
+// Atualizar metas de economia
+function updateSavingsGoal(amount) {
+  financialGoals.currentSavings += amount;
+  localStorage.setItem('financialGoals', JSON.stringify(financialGoals));
+  updateGoalsUI();
+}
+
+// Atualizar UI das metas
+function updateGoalsUI() {
+  const progressBar = document.getElementById('savingsProgress');
+  const savingsText = document.getElementById('savingsText');
+  
+  if (financialGoals.monthlySavings > 0) {
+    const percentage = Math.min((financialGoals.currentSavings / financialGoals.monthlySavings) * 100, 100);
+    progressBar.innerHTML = `<div style="width: ${percentage}%"></div>`;
+    savingsText.textContent = `R$ ${financialGoals.currentSavings.toFixed(2)}/R$ ${financialGoals.monthlySavings.toFixed(2)}`;
+  } else {
+    progressBar.innerHTML = '<div style="width: 0%"></div>';
+    savingsText.textContent = 'Nenhuma meta definida';
+  }
+}
+
+// Exportar para CSV
+function exportToCSV() {
+  if (transactions.length === 0) {
+    alert('Nenhuma transação para exportar!');
+    return;
+  }
+
+  let csv = 'Data,Descrição,Categoria,Valor,Tipo\n';
+  
+  transactions.forEach(transaction => {
+    const date = new Date(transaction.date).toLocaleDateString();
+    csv += `"${date}","${transaction.description}","${transaction.category.name}",${transaction.amount},"${transaction.type === 'income' ? 'Receita' : 'Despesa'}"\n`;
+  });
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `transacoes_${new Date().toISOString().slice(0, 10)}.csv`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Inicializar categorias no formulário
+function initCategorySelect() {
+  const categorySelect = document.createElement('select');
+  categorySelect.id = 'category';
+  categorySelect.className = 'category-select';
+  
+  categories.forEach(category => {
+    const option = document.createElement('option');
+    option.value = category.id;
+    option.textContent = category.name;
+    categorySelect.appendChild(option);
+  });
+
+  const form = document.getElementById('transactionForm');
+  const typeInputs = document.querySelector('.radio-group');
+  form.insertBefore(categorySelect, typeInputs);
+}
+
 // Metas
 let financialGoals = JSON.parse(localStorage.getItem('financialGoals')) || {
   monthlySavings: 0,
@@ -152,3 +251,49 @@ function updateChart() {
 
 // Inicializar
 updateUI();
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // ... (código existente)
+  
+  // Novos inicializadores
+  initCategorySelect();
+  updateGoalsUI();
+  
+  // Configurar meta mensal
+  document.getElementById('setGoalBtn').addEventListener('click', () => {
+    const goalAmount = parseFloat(document.getElementById('monthlyGoal').value);
+    if (!isNaN(goalAmount) {
+      financialGoals.monthlySavings = goalAmount;
+      financialGoals.currentSavings = 0;
+      localStorage.setItem('financialGoals', JSON.stringify(financialGoals));
+      updateGoalsUI();
+      alert(`Meta mensal de R$ ${goalAmount.toFixed(2)} definida!`);
+    }
+  });
+  
+  // Exportar CSV
+  document.getElementById('exportCSV').addEventListener('click', exportToCSV);
+});
+
+// Dentro da criação de cada transação (li)
+li.innerHTML = `
+  <div class="transaction-description">
+    <i class="fas ${transaction.type === 'income' ? 'fa-arrow-down income-text' : 'fa-arrow-up expense-text'}"></i>
+    <span>${transaction.description}</span>
+    <span class="category-tag" style="background-color: ${getCategoryColor(transaction.category.id)}">
+      <i class="fas ${transaction.category.icon}"></i> ${transaction.category.name}
+    </span>
+  </div>
+  <!-- ... resto do código ... -->
+`;
+
+// Adicione esta função auxiliar
+function getCategoryColor(categoryId) {
+  const colors = [
+    '#FF5252', '#FF4081', '#E040FB', '#7C4DFF',
+    '#536DFE', '#448AFF', '#40C4FF', '#64FFDA',
+    '#69F0AE', '#B2FF59', '#EEFF41', '#FFFF00'
+  ];
+  return colors[categoryId % colors.length];
+}
