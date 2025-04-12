@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Atualizar localStorage
   function updateLocalStorage() {
     localStorage.setItem('transactions', JSON.stringify(transactions));
+    localStorage.setItem('financialGoals', JSON.stringify(financialGoals));
   }
 
   // Dark Mode
@@ -180,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setMonthlyGoal() {
     const goalAmount = parseFloat(monthlyGoalInput.value);
-    if (!isNaN(goalAmount) {
+    if (!isNaN(goalAmount)) {
       financialGoals.monthlySavings = goalAmount;
       financialGoals.currentSavings = 0;
       localStorage.setItem('financialGoals', JSON.stringify(financialGoals));
@@ -231,7 +232,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let myChart;
 
   function updateChart() {
-    const ctx = document.getElementById('myChart').getContext('2d');
+    const ctx = document.getElementById('myChart');
+    if (!ctx) return;
+
+    const ctx2d = ctx.getContext('2d');
     
     // Agrupar por dia (últimos 7 dias)
     const dates = [];
@@ -259,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (myChart) myChart.destroy();
 
-    myChart = new Chart(ctx, {
+    myChart = new Chart(ctx2d, {
       type: 'bar',
       data: {
         labels: dates,
