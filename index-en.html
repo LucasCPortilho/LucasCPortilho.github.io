@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Portilho | Developer in Training</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.5;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #60a5fa, #c084fc);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            border-bottom: 1px solid #334155;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .language-switch {
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+
+        .lang-btn {
+            background: #334155;
+            color: #e2e8f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+
+        .lang-btn.active {
+            background: #60a5fa;
+            color: #0f172a;
+        }
+
+        .section {
+            background: #1e293b;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #334155;
+            transition: transform 0.2s;
+        }
+
+        .section:hover {
+            transform: translateY(-4px);
+            border-color: #60a5fa;
+        }
+
+        h2 {
+            color: #60a5fa;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-card {
+            background: #0f172a;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid #60a5fa;
+        }
+
+        .project-card h3 {
+            color: #c084fc;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: #334155;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill {
+            background: #0f172a;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            border: 1px solid #334155;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            background: #60a5fa;
+            color: #0f172a;
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #c084fc;
+            transform: scale(1.02);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #334155;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-switch">
+            <a href="./" class="lang-btn">🇧🇷 PT</a>
+            <a href="./index-en.html" class="lang-btn active">🇺🇸 EN</a>
+        </div>
+
+        <header>
+            <h1>Hello, I'm Lucas Portilho</h1>
+            <div class="tagline">Developer in Training | Logic & Solutions</div>
+        </header>
+
+        <div class="section">
+            <h2>📌 About Me</h2>
+            <p>I'm passionate about technology and software development. I have solid theoretical knowledge in programming logic, data structures, and algorithms. I'm now turning this knowledge into practical projects to solve real problems. I'm looking for international remote opportunities.</p>
+        </div>
+
+        <div class="section">
+            <h2>📚 Theoretical Knowledge</h2>
+            <div class="skills-list">
+                <span class="skill">Programming Logic</span>
+                <span class="skill">Data Structures</span>
+                <span class="skill">Algorithms</span>
+                <span class="skill">Object Orientation</span>
+                <span class="skill">Database (Theory)</span>
+                <span class="skill">HTML & CSS</span>
+                <span class="skill">JavaScript (Fundamentals)</span>
+                <span class="skill">Python (Logic)</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚧 Projects</h2>
+            <p style="margin-bottom: 1rem; color: #94a3b8;">↓ These are the projects I'm developing to demonstrate my practical skills ↓</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Task Management System</h3>
+                    <p>Web application to manage daily tasks with categories and deadlines.</p>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">LocalStorage</span>
+                </div>
+                <div class="project-card">
+                    <h3>BMI Calculator</h3>
+                    <p>Interactive tool to calculate Body Mass Index with history tracking.</p>
+                    <span class="tech-badge">HTML/CSS</span>
+                    <span class="tech-badge">JavaScript</span>
+                </div>
+                <div class="project-card">
+                    <h3>Sales Dashboard</h3>
+                    <p>Data visualization with charts and analysis using simulated data.</p>
+                    <span class="tech-badge">Pandas</span>
+                    <span class="tech-badge">Matplotlib</span>
+                </div>
+                <div class="project-card">
+                    <h3>Weather API</h3>
+                    <p>Real-time weather display using public API consumption.</p>
+                    <span class="tech-badge">Fetch API</span>
+                    <span class="tech-badge">JSON</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Professional Goal</h2>
+            <p>Seeking opportunity as a remote developer for Global companies. I'm available to learn fast, adapt to different time zones, and deliver quality solutions. Technical English in development for daily communication.</p>
+        </div>
+
+        <div class="section">
+            <h2>📫 Contact</h2>
+            <div class="contact-links">
+                <a href="#" class="btn" id="emailBtn">📧 Send Email</a>
+                <a href="#" class="btn" id="linkedinBtn" target="_blank">💼 LinkedIn</a>
+                <a href="#" class="btn" id="githubBtn" target="_blank">🐙 GitHub</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>Available for international remote opportunities 🌍</p>
+            <p style="margin-top: 0.5rem;">📍 Working to earn in Euros or Dolars </p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('emailBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'mailto:lucascoxev2@outlook.com?subject=I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk';
+        });
+
+        document.getElementById('linkedinBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('https://www.linkedin.com/in/lucas-portilho/', '_blank');
+        });
+
+        document.getElementById('githubBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('https://github.com/LucasCPortilho', '_blank');
+        });
+    </script>
+</body>
+</html>
