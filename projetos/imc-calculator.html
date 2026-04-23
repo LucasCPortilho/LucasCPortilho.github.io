@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC | Lucas Portilho</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.5;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            margin-bottom: 1.5rem;
+        }
+
+        .back-link a {
+            color: #60a5fa;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-link a:hover {
+            color: #c084fc;
+        }
+
+        .card {
+            background: #1e293b;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: 1px solid #334155;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #60a5fa, #c084fc);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #c084fc;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 0.75rem;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: #e2e8f0;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        input:focus {
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #60a5fa, #c084fc);
+            color: #0f172a;
+            font-weight: bold;
+            font-size: 1rem;
+            border: none;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.02);
+        }
+
+        .result {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #0f172a;
+            border-radius: 1rem;
+            text-align: center;
+        }
+
+        .result h3 {
+            color: #60a5fa;
+            margin-bottom: 0.5rem;
+        }
+
+        .imc-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .classification {
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            border-radius: 2rem;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .history {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #334155;
+        }
+
+        .history h4 {
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        .history-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            background: #0f172a;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .clear-btn {
+            background: #334155;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .clear-btn:hover {
+            background: #ef4444;
+            color: white;
+            transform: scale(1.02);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #64748b;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back-link">
+            <a href="../">← Voltar para o Portfólio</a>
+        </div>
+
+        <div class="card">
+            <h1>📊 Calculadora de IMC</h1>
+            <div class="subtitle">Índice de Massa Corporal</div>
+
+            <div class="input-group">
+                <label>📏 Altura (em metros)</label>
+                <input type="number" id="height" step="0.01" placeholder="Ex: 1.75">
+            </div>
+
+            <div class="input-group">
+                <label>⚖️ Peso (em kg)</label>
+                <input type="number" id="weight" step="0.1" placeholder="Ex: 70.5">
+            </div>
+
+            <button onclick="calculateIMC()">Calcular IMC</button>
+
+            <div class="result" id="result" style="display: none;">
+                <h3>📈 Seu IMC</h3>
+                <div class="imc-value" id="imcValue">0.00</div>
+                <div class="classification" id="classification"></div>
+            </div>
+
+            <div class="history" id="historySection" style="display: none;">
+                <h4>📜 Histórico de Cálculos</h4>
+                <div class="history-list" id="historyList"></div>
+                <button class="clear-btn" onclick="clearHistory()">🗑️ Limpar Histórico</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Projeto desenvolvido como parte do meu portfólio para oportunidades internacionais</p>
+        </footer>
+    </div>
+
+    <script>
+        let history = [];
+
+        function loadHistory() {
+            const saved = localStorage.getItem('imcHistory');
+            if (saved) {
+                history = JSON.parse(saved);
+                updateHistoryDisplay();
+            }
+        }
+
+        function saveHistory() {
+            localStorage.setItem('imcHistory', JSON.stringify(history));
+            updateHistoryDisplay();
+        }
+
+        function updateHistoryDisplay() {
+            const historySection = document.getElementById('historySection');
+            const historyList = document.getElementById('historyList');
+            
+            if (history.length > 0) {
+                historySection.style.display = 'block';
+                historyList.innerHTML = history.map(item => `
+                    <div class="history-item">
+                        <span>${item.date}</span>
+                        <span>IMC: ${item.imc}</span>
+                        <span>${item.classification}</span>
+                    </div>
+                `).reverse().join('');
+            } else {
+                historySection.style.display = 'none';
+            }
+        }
+
+        function clearHistory() {
+            history = [];
+            localStorage.removeItem('imcHistory');
+            updateHistoryDisplay();
+        }
+
+        function getClassification(imc) {
+            if (imc < 18.5) return { text: "Abaixo do peso", color: "#f59e0b" };
+            if (imc < 25) return { text: "Peso normal", color: "#10b981" };
+            if (imc < 30) return { text: "Sobrepeso", color: "#f59e0b" };
+            if (imc < 35) return { text: "Obesidade grau I", color: "#ef4444" };
+            if (imc < 40) return { text: "Obesidade grau II", color: "#ef4444" };
+            return { text: "Obesidade grau III", color: "#dc2626" };
+        }
+
+        function calculateIMC() {
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+
+            if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+                alert('Por favor, insira valores válidos para altura e peso.');
+                return;
+            }
+
+            const imc = weight / (height * height);
+            const classification = getClassification(imc);
+            
+            document.getElementById('imcValue').innerHTML = imc.toFixed(2);
+            document.getElementById('classification').innerHTML = classification.text;
+            document.getElementById('classification').style.backgroundColor = classification.color;
+            document.getElementById('classification').style.padding = '0.5rem 1rem';
+            document.getElementById('classification').style.borderRadius = '2rem';
+            document.getElementById('classification').style.color = '#0f172a';
+            document.getElementById('classification').style.fontWeight = 'bold';
+            document.getElementById('result').style.display = 'block';
+
+            const now = new Date();
+            const dateStr = `${now.getDate()}/${now.getMonth()+1} ${now.getHours()}:${now.getMinutes().toString().padStart(2,'0')}`;
+            
+            history.push({
+                date: dateStr,
+                imc: imc.toFixed(2),
+                classification: classification.text
+            });
+            
+            saveHistory();
+        }
+
+        loadHistory();
+    </script>
+</body>
+</html>
