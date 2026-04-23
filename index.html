@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Portilho | Desenvolvedor Fullstack </title>
+    <title>Lucas Portilho | Portfólio</title>
     <style>
         * {
             margin: 0;
@@ -23,6 +23,28 @@
         .container {
             max-width: 1000px;
             margin: 0 auto;
+        }
+
+        .language-switch {
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+
+        .lang-btn {
+            background: #334155;
+            color: #e2e8f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .lang-btn.active {
+            background: #60a5fa;
+            color: #0f172a;
         }
 
         header {
@@ -72,7 +94,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1rem;
             margin-top: 1rem;
         }
@@ -129,11 +151,71 @@
             font-weight: bold;
             transition: all 0.2s;
             display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
         }
 
         .btn:hover {
             background: #c084fc;
             transform: scale(1.02);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #1e293b;
+            border-radius: 1rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 1.5rem;
+            border: 1px solid #60a5fa;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: #e2e8f0;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .imc-input {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 0.5rem;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .imc-result {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #0f172a;
+            border-radius: 0.5rem;
+            text-align: center;
         }
 
         footer {
@@ -157,104 +239,230 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Olá, eu sou Lucas Portilho</h1>
-            <div class="tagline">Desenvolvedor | Lógica e Soluções</div>
-        </header>
-
-        <div class="section">
-            <h2>📌 Sobre mim</h2>
-            <p>Sou apaixonado por tecnologia e desenvolvimento de software. Tenho conhecimento teórico sólido em lógica de programação, estruturas de dados e algoritmos. Estou agora transformando esse conhecimento em projetos práticos para resolver problemas reais. </p>
+        <div class="language-switch">
+            <button class="lang-btn active" id="btnPT">🇧🇷 PT</button>
+            <button class="lang-btn" id="btnEN">🇺🇸 EN</button>
         </div>
 
-        <div class="section">
-            <h2>📚 Conhecimentos Teóricos</h2>
-            <div class="skills-list">
-                <span class="skill">Lógica de Programação</span>
-                <span class="skill">Estruturas de Dados</span>
-                <span class="skill">Algoritmos</span>
-                <span class="skill">Orientação a Objetos</span>
-                <span class="skill">Banco de Dados (Teoria)</span>
-                <span class="skill">HTML & CSS</span>
-                <span class="skill">JavaScript (Fundamentos)</span>
-                <span class="skill">Python (Lógica)</span>
-            </div>
+        <div id="content">
+            <!-- O conteúdo será inserido via JavaScript -->
         </div>
 
-        <div class="section">
-            <h2>🚧 Projetos </h2>
-            <p style="margin-bottom: 1rem; color: #94a3b8;">↓ Projetos ↓</p>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Sistema de Tarefas</h3>
-                    <p>Aplicação web para gerenciar tarefas diárias com categorias e prazos.</p>
-                    <span class="tech-badge">JavaScript</span>
-                    <span class="tech-badge">LocalStorage</span>
-                </div>
-                <div class="project-card">
-    <h3>📊 Calculadora de IMC</h3>
-    <p>Ferramenta interativa para calcular Índice de Massa Corporal com histórico salvo.</p>
-    <span class="tech-badge">HTML</span>
-    <span class="tech-badge">CSS</span>
-    <span class="tech-badge">JavaScript</span>
-    <span class="tech-badge">LocalStorage</span>
-    <div style="margin-top: 0.75rem;">
-        <a href="./projetos/imc-calculator.html" target="_blank" style="color: #60a5fa; text-decoration: none;">🔗 Ver projeto →</a>
-    </div>
-</div>
-                    <span class="tech-badge">HTML/CSS</span>
-                    <span class="tech-badge">Python</span>
-                </div>
-                <div class="project-card">
-                    <h3>Dashboard de Vendas</h3>
-                    <p>Visualização de dados simulados com gráficos e análises.</p>
-                    <span class="tech-badge">Pandas</span>
-                    <span class="tech-badge">Matplotlib</span>
-                </div>
-                <div class="project-card">
-                    <h3>API de Clima</h3>
-                    <p>Consumo de API pública para exibir clima em tempo real.</p>
-                    <span class="tech-badge">Fetch API</span>
-                    <span class="tech-badge">JSON</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>🎯 Objetivo Profissional</h2>
-            <p>Tenho disponibilidade para aprender rápido, me adaptar a diferentes fusos e contribuir com soluções de qualidade. Inglês técnico para comunicação diária.</p>
-        </div>
-
-        <div class="section">
-            <h2>📫 Contato</h2>
-            <div class="contact-links">
-                <a href="#" class="btn" id="emailBtn">📧 Enviar E-mail</a>
-                <a href="#" class="btn" id="linkedinBtn" target="_blank">💼 LinkedIn</a>
-                <a href="#" class="btn" id="githubBtn" target="_blank">🐙 GitHub</a>
-            </div>
-        </div>
-
-        <footer>
+        <footer id="footer">
             <p>Disponível para oportunidades remotas internacionais 🌍</p>
-            <p style="margin-top: 0.5rem;">📍 Trabalhando para receber em Euros e Dólares </p>
+            <p style="margin-top: 0.5rem;">📍 Trabalhando para receber em Euros</p>
         </footer>
     </div>
 
+    <!-- Modal da Calculadora IMC -->
+    <div id="imcModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">📊 Calculadora de IMC</h3>
+                <button class="close-modal" onclick="closeIMCModal()">×</button>
+            </div>
+            <div>
+                <input type="number" id="modalHeight" class="imc-input" placeholder="Altura (m) - Ex: 1.75">
+                <input type="number" id="modalWeight" class="imc-input" placeholder="Peso (kg) - Ex: 70">
+                <button class="btn" style="width:100%; margin-top: 0.5rem;" onclick="calculateModalIMC()">Calcular</button>
+                <div id="modalIMCResult" class="imc-result" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        document.getElementById('emailBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = 'mailto:lucascoxev2@outlook.com.com?subject=Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar';
+        // Conteúdo em Português
+        const contentPT = {
+            name: "Olá, eu sou Lucas Portilho",
+            tagline: "Desenvolvedor em Formação | Lógica e Soluções",
+            about: "📌 Sobre mim",
+            aboutText: "Sou apaixonado por tecnologia e desenvolvimento de software. Tenho conhecimento teórico sólido em lógica de programação, estruturas de dados e algoritmos. Estou agora transformando esse conhecimento em projetos práticos para resolver problemas reais. Busco minha primeira oportunidade remota internacional.",
+            knowledge: "📚 Conhecimentos Teóricos",
+            skills: ["Lógica de Programação", "Estruturas de Dados", "Algoritmos", "Orientação a Objetos", "Banco de Dados (Teoria)", "HTML & CSS", "JavaScript (Fundamentos)", "Python (Lógica)"],
+            projects: "🚧 Projetos",
+            projectsSub: "↓ Clique nos botões para ver os projetos funcionando ↓",
+            projectsList: [
+                { name: "📊 Calculadora de IMC", desc: "Ferramenta interativa para calcular IMC com histórico salvo.", techs: ["HTML", "CSS", "JavaScript", "LocalStorage"], action: "openIMCModal()" },
+                { name: "📝 Sistema de Tarefas", desc: "Aplicação web para gerenciar tarefas diárias (em breve).", techs: ["JavaScript", "LocalStorage"], action: "alert('Em breve!')" },
+                { name: "🌤️ API do Clima", desc: "Consumo de API pública para exibir clima em tempo real (em breve).", techs: ["Fetch API", "JSON"], action: "alert('Em breve!')" }
+            ],
+            goal: "🎯 Objetivo Profissional",
+            goalText: "Buscar minha primeira oportunidade como desenvolvedor remoto para empresas europeias. Tenho disponibilidade para aprender rápido, me adaptar a diferentes fusos e contribuir com soluções de qualidade. Inglês técnico em desenvolvimento para comunicação diária.",
+            contact: "📫 Contato",
+            footer: "Disponível para oportunidades remotas internacionais 🌍",
+            footerSub: "📍 Trabalhando para receber em Euros"
+        };
+
+        // Conteúdo em Inglês
+        const contentEN = {
+            name: "Hello, I'm Lucas Portilho",
+            tagline: "Developer in Training | Logic & Solutions",
+            about: "📌 About Me",
+            aboutText: "I'm passionate about technology and software development. I have solid theoretical knowledge in programming logic, data structures, and algorithms. I'm now turning this knowledge into practical projects to solve real problems. I'm looking for my first international remote opportunity.",
+            knowledge: "📚 Theoretical Knowledge",
+            skills: ["Programming Logic", "Data Structures", "Algorithms", "Object Orientation", "Database (Theory)", "HTML & CSS", "JavaScript (Fundamentals)", "Python (Logic)"],
+            projects: "🚧 Projects",
+            projectsSub: "↓ Click the buttons to see working projects ↓",
+            projectsList: [
+                { name: "📊 BMI Calculator", desc: "Interactive tool to calculate BMI with saved history.", techs: ["HTML", "CSS", "JavaScript", "LocalStorage"], action: "openIMCModal()" },
+                { name: "📝 Task System", desc: "Web app to manage daily tasks (coming soon).", techs: ["JavaScript", "LocalStorage"], action: "alert('Coming soon!')" },
+                { name: "🌤️ Weather API", desc: "Real-time weather using public API (coming soon).", techs: ["Fetch API", "JSON"], action: "alert('Coming soon!')" }
+            ],
+            goal: "🎯 Professional Goal",
+            goalText: "Seeking my first opportunity as a remote developer for European companies. I'm available to learn fast, adapt to different time zones, and deliver quality solutions. Technical English in development for daily communication.",
+            contact: "📫 Contact",
+            footer: "Available for international remote opportunities 🌍",
+            footerSub: "📍 Working to earn in Euros"
+        };
+
+        let currentLang = 'pt';
+
+        function openIMCModal() {
+            document.getElementById('imcModal').style.display = 'flex';
+            document.getElementById('modalHeight').value = '';
+            document.getElementById('modalWeight').value = '';
+            document.getElementById('modalIMCResult').style.display = 'none';
+        }
+
+        function closeIMCModal() {
+            document.getElementById('imcModal').style.display = 'none';
+        }
+
+        function calculateModalIMC() {
+            const height = parseFloat(document.getElementById('modalHeight').value);
+            const weight = parseFloat(document.getElementById('modalWeight').value);
+
+            if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+                alert(currentLang === 'pt' ? 'Insira valores válidos!' : 'Enter valid values!');
+                return;
+            }
+
+            const imc = weight / (height * height);
+            let classification = '';
+            
+            if (currentLang === 'pt') {
+                if (imc < 18.5) classification = 'Abaixo do peso';
+                else if (imc < 25) classification = 'Peso normal';
+                else if (imc < 30) classification = 'Sobrepeso';
+                else if (imc < 35) classification = 'Obesidade grau I';
+                else if (imc < 40) classification = 'Obesidade grau II';
+                else classification = 'Obesidade grau III';
+            } else {
+                if (imc < 18.5) classification = 'Underweight';
+                else if (imc < 25) classification = 'Normal weight';
+                else if (imc < 30) classification = 'Overweight';
+                else if (imc < 35) classification = 'Obesity class I';
+                else if (imc < 40) classification = 'Obesity class II';
+                else classification = 'Obesity class III';
+            }
+
+            const resultDiv = document.getElementById('modalIMCResult');
+            resultDiv.innerHTML = `
+                <strong>IMC: ${imc.toFixed(2)}</strong><br>
+                <span style="color: #60a5fa;">${classification}</span>
+            `;
+            resultDiv.style.display = 'block';
+        }
+
+        function renderContent() {
+            const content = currentLang === 'pt' ? contentPT : contentEN;
+            const html = `
+                <header>
+                    <h1>${content.name}</h1>
+                    <div class="tagline">${content.tagline}</div>
+                </header>
+
+                <div class="section">
+                    <h2>${content.about}</h2>
+                    <p>${content.aboutText}</p>
+                </div>
+
+                <div class="section">
+                    <h2>${content.knowledge}</h2>
+                    <div class="skills-list">
+                        ${content.skills.map(skill => `<span class="skill">${skill}</span>`).join('')}
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>${content.projects}</h2>
+                    <p style="margin-bottom: 1rem; color: #94a3b8;">${content.projectsSub}</p>
+                    <div class="projects-grid">
+                        ${content.projectsList.map(proj => `
+                            <div class="project-card">
+                                <h3>${proj.name}</h3>
+                                <p>${proj.desc}</p>
+                                <div>
+                                    ${proj.techs.map(tech => `<span class="tech-badge">${tech}</span>`).join('')}
+                                </div>
+                                <div style="margin-top: 0.75rem;">
+                                    <button class="btn" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;" onclick="${proj.action}">🔗 ${currentLang === 'pt' ? 'Abrir' : 'Open'}</button>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>${content.goal}</h2>
+                    <p>${content.goalText}</p>
+                </div>
+
+                <div class="section">
+                    <h2>${content.contact}</h2>
+                    <div class="contact-links">
+                        <a href="#" class="btn" id="emailBtn">📧 ${currentLang === 'pt' ? 'Enviar E-mail' : 'Send Email'}</a>
+                        <a href="#" class="btn" id="linkedinBtn">💼 ${currentLang === 'pt' ? 'LinkedIn' : 'LinkedIn'}</a>
+                        <a href="#" class="btn" id="githubBtn">🐙 GitHub</a>
+                    </div>
+                </div>
+            `;
+            document.getElementById('content').innerHTML = html;
+
+            document.getElementById('footer').innerHTML = `
+                <p>${content.footer}</p>
+                <p style="margin-top: 0.5rem;">${content.footerSub}</p>
+            `;
+
+            document.getElementById('emailBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'mailto:lucascoxev2@outlook.com?subject=' + encodeURIComponent(currentLang === 'pt' ? 'Vi seu portfólio' : 'I saw your portfolio');
+            });
+
+            document.getElementById('linkedinBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                alert(currentLang === 'pt' ? https://www.linkedin.com/in/lucas-portilho/);
+            });
+
+            document.getElementById('githubBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.open('https://github.com/LucasCPortilho', '_blank');
+            });
+        }
+
+        document.getElementById('btnPT').addEventListener('click', () => {
+            currentLang = 'pt';
+            document.getElementById('btnPT').classList.add('active');
+            document.getElementById('btnEN').classList.remove('active');
+            renderContent();
         });
 
-        document.getElementById('linkedinBtn').addEventListener('click', function(e) {
-    e.preventDefault();
-    window.open('https://www.linkedin.com/in/lucas-portilho/', '_blank');
-});
+        document.getElementById('btnEN').addEventListener('click', () => {
+            currentLang = 'en';
+            document.getElementById('btnEN').classList.add('active');
+            document.getElementById('btnPT').classList.remove('active');
+            renderContent();
+        });
 
-        document.getElementById('githubBtn').addEventListener('click', function(e) {
-    e.preventDefault();
-    window.open('https://github.com/LucasCPortilho', '_blank');
-});
+        renderContent();
+
+        // Fechar modal clicando fora
+        window.onclick = function(event) {
+            const modal = document.getElementById('imcModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
