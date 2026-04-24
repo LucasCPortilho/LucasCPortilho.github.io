@@ -12,18 +12,19 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background: #f4f6fa;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f2f5;
             color: #1a2a3a;
             line-height: 1.5;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
 
+        /* Language Switcher */
         .lang-switch {
             text-align: right;
             margin-bottom: 2rem;
@@ -47,6 +48,7 @@
             color: white;
         }
 
+        /* Header */
         header {
             margin-bottom: 2rem;
             padding-bottom: 1.5rem;
@@ -72,25 +74,32 @@
             font-size: 0.85rem;
         }
 
+        /* Cards */
         .card {
             background: white;
             border-radius: 1rem;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
         }
 
         .card-title {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #0f172a;
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #1e3a5f;
+            border-bottom: 3px solid #1e3a5f;
             display: inline-block;
         }
 
+        /* Skills */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
@@ -107,6 +116,7 @@
             font-weight: 500;
         }
 
+        /* Experience */
         .exp-header {
             display: flex;
             justify-content: space-between;
@@ -179,23 +189,31 @@
             color: #64748b;
         }
 
-        /* Abas do Dashboard */
+        /* Dashboard Moderno */
+        .dashboard-container {
+            background: #0f172a;
+            border-radius: 1rem;
+            padding: 1rem;
+            margin-top: 0.5rem;
+        }
+
         .dashboard-tabs {
             display: flex;
             gap: 0.5rem;
             margin-bottom: 1rem;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid #334155;
             padding-bottom: 0.5rem;
         }
 
         .tab-btn {
             background: transparent;
             border: none;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             font-size: 0.85rem;
+            font-weight: 500;
             cursor: pointer;
             border-radius: 0.5rem;
-            color: #64748b;
+            color: #94a3b8;
             transition: all 0.2s;
         }
 
@@ -205,84 +223,121 @@
         }
 
         .tab-btn:hover:not(.active) {
-            background: #e2e8f0;
+            background: #334155;
+            color: #e2e8f0;
         }
 
         .tab-content {
             display: none;
+            animation: fadeIn 0.3s ease;
         }
 
         .tab-content.active {
             display: block;
         }
 
-        .dashboard-preview {
-            background: #f1f5f9;
-            border-radius: 0.75rem;
-            padding: 1rem;
-            margin-top: 0.5rem;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .dashboard-placeholder {
-            background: white;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            border: 1px solid #e2e8f0;
-        }
-
-        .kpi-row {
-            display: flex;
+        /* Dashboard Widgets */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
         }
 
-        .kpi {
-            flex: 1;
-            background: #f8fafc;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
+        .kpi-card {
+            background: #1e293b;
+            padding: 1rem;
+            border-radius: 0.75rem;
             text-align: center;
-            border-left: 3px solid #1e3a5f;
         }
 
         .kpi-value {
-            font-size: 1.3rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: #0f172a;
+            color: #60a5fa;
         }
 
         .kpi-label {
             font-size: 0.7rem;
-            color: #64748b;
+            color: #94a3b8;
+            margin-top: 0.25rem;
         }
 
-        .progress-bar {
-            background: #e2e8f0;
-            border-radius: 1rem;
+        .progress-item {
+            margin-bottom: 1rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            margin-bottom: 0.25rem;
+            color: #cbd5e1;
+        }
+
+        .progress-bar-bg {
+            background: #334155;
+            border-radius: 0.5rem;
             height: 0.5rem;
-            margin: 0.5rem 0;
             overflow: hidden;
         }
 
         .progress-fill {
-            background: #1e3a5f;
+            background: #60a5fa;
             height: 100%;
-            border-radius: 1rem;
-        }
-
-        .two-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-
-        .info-card {
-            background: #f8fafc;
-            padding: 0.8rem;
             border-radius: 0.5rem;
+            transition: width 0.5s ease;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .schedule-card {
+            background: #1e293b;
+            padding: 0.8rem;
+            border-radius: 0.75rem;
             text-align: center;
+        }
+
+        .schedule-date {
+            font-size: 0.7rem;
+            color: #94a3b8;
+        }
+
+        .schedule-status {
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+
+        .status-completed { color: #10b981; }
+        .status-progress { color: #f59e0b; }
+        .status-planned { color: #64748b; }
+
+        .risk-item {
+            background: #1e293b;
+            padding: 0.6rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .risk-badge {
+            background: #334155;
+            padding: 0.2rem 0.5rem;
+            border-radius: 1rem;
+            font-size: 0.7rem;
+            color: #cbd5e1;
         }
 
         .achievement-list {
@@ -315,13 +370,13 @@
         .btn {
             padding: 0.5rem 1.2rem;
             border-radius: 0.5rem;
-            text-decoration: none;
             font-weight: 500;
             font-size: 0.85rem;
             transition: all 0.2s;
             display: inline-block;
             cursor: pointer;
             border: none;
+            text-decoration: none;
         }
 
         .btn-primary {
@@ -331,6 +386,7 @@
 
         .btn-primary:hover {
             background: #0f2a4a;
+            transform: translateY(-1px);
         }
 
         .btn-outline {
@@ -341,6 +397,7 @@
 
         .btn-outline:hover {
             border-color: #1e3a5f;
+            background: #f8fafc;
         }
 
         footer {
@@ -353,15 +410,10 @@
         }
 
         @media (max-width: 700px) {
-            .container {
-                padding: 1rem;
-            }
-            h1 {
-                font-size: 1.6rem;
-            }
-            .two-columns {
-                grid-template-columns: 1fr;
-            }
+            .container { padding: 1rem; }
+            h1 { font-size: 1.6rem; }
+            .kpi-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+            .schedule-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -379,13 +431,13 @@
     </div>
 
     <script>
+        // Conteúdo em Português
         const contentPT = {
             name: "Lucas Portilho",
             title: "Power BI Analyst | Project Analyst",
             location: "📍 Brasil — Disponível para trabalho remoto (Europa)",
             about: "Sobre",
             aboutText: "Analista com foco em Power BI e gestão de projetos. Experiência comprovada na construção de dashboards interativos e relatórios gerenciais, com forte capacidade de trabalho autônomo e interação com stakeholders. Atuei no programa da Fragata MEKO A-200 (Marinha do Brasil / TKMS), desenvolvendo soluções analíticas para acompanhamento de KPIs de produção.",
-
             experience: "Experiência",
             projectName: "Programa Fragata MEKO A-200",
             company: "Marinha do Brasil / TKMS",
@@ -398,7 +450,7 @@
             dashboardDesc: "Clique nas abas abaixo para visualizar diferentes visões do dashboard desenvolvido para o programa.",
             tab1: "📊 Visão Geral",
             tab2: "📅 Cronograma",
-            tab3: "📈 Performance",
+            tab3: "⚠️ Riscos & Performance",
             metrics: [
                 { label: "Comprimento", value: "121m" },
                 { label: "Deslocamento", value: "3.950t" },
@@ -421,13 +473,13 @@
             githubText: "GitHub"
         };
 
+        // Conteúdo em Inglês
         const contentEN = {
             name: "Lucas Portilho",
             title: "Power BI Analyst | Project Analyst",
             location: "📍 Brazil — Available for remote work (Europe)",
             about: "About",
             aboutText: "Project-focused analyst specializing in Power BI dashboards and reporting. Proven experience building interactive dashboards and management reports with strong autonomy and stakeholder interaction. Worked on the MEKO A-200 Frigate program (Brazilian Navy / TKMS), developing analytical solutions to track production KPIs.",
-
             experience: "Experience",
             projectName: "MEKO A-200 Frigate Program",
             company: "Brazilian Navy / TKMS",
@@ -440,7 +492,7 @@
             dashboardDesc: "Click the tabs below to view different perspectives of the dashboard developed for the program.",
             tab1: "📊 Overview",
             tab2: "📅 Schedule",
-            tab3: "📈 Performance",
+            tab3: "⚠️ Risks & Performance",
             metrics: [
                 { label: "Length", value: "121m" },
                 { label: "Displacement", value: "3,950t" },
@@ -465,7 +517,8 @@
 
         let currentLang = 'pt';
 
-        function initDashboardTabs() {
+        function initDashboard() {
+            // Abas do Dashboard
             const tabs = document.querySelectorAll('.tab-btn');
             const contents = document.querySelectorAll('.tab-content');
             
@@ -475,7 +528,8 @@
                     tabs.forEach(t => t.classList.remove('active'));
                     contents.forEach(c => c.classList.remove('active'));
                     tab.classList.add('active');
-                    document.getElementById(`tab-${tabId}`).classList.add('active');
+                    const activeContent = document.getElementById(`tab-${tabId}`);
+                    if (activeContent) activeContent.classList.add('active');
                 });
             });
         }
@@ -531,130 +585,109 @@
                     <div class="card-title">📊 ${c.dashboardTitle}</div>
                     <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">${c.dashboardDesc}</p>
                     
-                    <div class="dashboard-tabs">
-                        <button class="tab-btn active" data-tab="overview">${c.tab1}</button>
-                        <button class="tab-btn" data-tab="schedule">${c.tab2}</button>
-                        <button class="tab-btn" data-tab="performance">${c.tab3}</button>
-                    </div>
+                    <div class="dashboard-container">
+                        <div class="dashboard-tabs">
+                            <button class="tab-btn active" data-tab="overview">${c.tab1}</button>
+                            <button class="tab-btn" data-tab="schedule">${c.tab2}</button>
+                            <button class="tab-btn" data-tab="performance">${c.tab3}</button>
+                        </div>
 
-                    <!-- Aba 1: Visão Geral -->
-                    <div id="tab-overview" class="tab-content active">
-                        <div class="dashboard-preview">
-                            <div class="dashboard-placeholder">
-                                <div class="kpi-row">
-                                    <div class="kpi">
-                                        <div class="kpi-value">87%</div>
-                                        <div class="kpi-label">Progresso Geral</div>
-                                    </div>
-                                    <div class="kpi">
-                                        <div class="kpi-value">42</div>
-                                        <div class="kpi-label">Atividades Concluídas</div>
-                                    </div>
-                                    <div class="kpi">
-                                        <div class="kpi-value">8</div>
-                                        <div class="kpi-label">Em Andamento</div>
-                                    </div>
+                        <!-- Aba 1: Visão Geral -->
+                        <div id="tab-overview" class="tab-content active">
+                            <div class="kpi-grid">
+                                <div class="kpi-card">
+                                    <div class="kpi-value">87%</div>
+                                    <div class="kpi-label">Progresso Geral</div>
                                 </div>
-                                <div style="margin: 0.8rem 0;">
-                                    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 0.25rem;">
-                                        <span>Construção do Casco</span>
-                                        <span>92%</span>
-                                    </div>
-                                    <div class="progress-bar"><div class="progress-fill" style="width: 92%;"></div></div>
-                                    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin: 0.5rem 0 0.25rem;">
-                                        <span>Sistema de Propulsão</span>
-                                        <span>78%</span>
-                                    </div>
-                                    <div class="progress-bar"><div class="progress-fill" style="width: 78%;"></div></div>
-                                    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin: 0.5rem 0 0.25rem;">
-                                        <span>Sistema de Combate</span>
-                                        <span>63%</span>
-                                    </div>
-                                    <div class="progress-bar"><div class="progress-fill" style="width: 63%;"></div></div>
+                                <div class="kpi-card">
+                                    <div class="kpi-value">42</div>
+                                    <div class="kpi-label">Atividades Concluídas</div>
                                 </div>
+                                <div class="kpi-card">
+                                    <div class="kpi-value">8</div>
+                                    <div class="kpi-label">Em Andamento</div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Construção do Casco</span><span>92%</span></div>
+                                <div class="progress-bar-bg"><div class="progress-fill" style="width: 92%"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Sistema de Propulsão</span><span>78%</span></div>
+                                <div class="progress-bar-bg"><div class="progress-fill" style="width: 78%"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Sistema de Combate</span><span>63%</span></div>
+                                <div class="progress-bar-bg"><div class="progress-fill" style="width: 63%"></div></div>
+                            </div>
+                        </div>
+
+                        <!-- Aba 2: Cronograma -->
+                        <div id="tab-schedule" class="tab-content">
+                            <div class="schedule-grid">
+                                <div class="schedule-card">
+                                    <div class="kpi-value">Q1 2024</div>
+                                    <div class="schedule-date">Início da Construção</div>
+                                    <div class="schedule-status status-completed">✅ Concluído</div>
+                                </div>
+                                <div class="schedule-card">
+                                    <div class="kpi-value">Q3 2024</div>
+                                    <div class="schedule-date">Lançamento ao Mar</div>
+                                    <div class="schedule-status status-progress">🔄 Em andamento</div>
+                                </div>
+                                <div class="schedule-card">
+                                    <div class="kpi-value">Q1 2025</div>
+                                    <div class="schedule-date">Testes de Mar</div>
+                                    <div class="schedule-status status-planned">⏳ Planejado</div>
+                                </div>
+                                <div class="schedule-card">
+                                    <div class="kpi-value">Q3 2025</div>
+                                    <div class="schedule-date">Entrega Oficial</div>
+                                    <div class="schedule-status status-planned">⏳ Planejado</div>
+                                </div>
+                            </div>
+                            <div class="progress-item" style="margin-top: 1rem;">
+                                <div class="progress-header"><span>Atraso em relação ao cronograma base</span><span style="color:#10b981;">-2%</span></div>
+                                <div class="progress-bar-bg"><div class="progress-fill" style="width: 2%; background: #10b981;"></div></div>
+                                <div style="font-size: 0.7rem; color:#94a3b8; margin-top: 0.25rem;">Projeto dentro da janela de tolerância (±5%)</div>
+                            </div>
+                        </div>
+
+                        <!-- Aba 3: Riscos & Performance -->
+                        <div id="tab-performance" class="tab-content">
+                            <div class="kpi-grid">
+                                <div class="kpi-card">
+                                    <div class="kpi-value">94%</div>
+                                    <div class="kpi-label">Eficiência da Equipe</div>
+                                </div>
+                                <div class="kpi-card">
+                                    <div class="kpi-value">98%</div>
+                                    <div class="kpi-label">Conformidade Técnica</div>
+                                </div>
+                                <div class="kpi-card">
+                                    <div class="kpi-value">€0M</div>
+                                    <div class="kpi-label">Variação de Custo</div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Custo Orçado vs Realizado</span><span>103%</span></div>
+                                <div class="progress-bar-bg"><div class="progress-fill" style="width: 103%; background: #f59e0b;"></div></div>
+                            </div>
+                            <div class="risk-item">
+                                <span>Fornecedor de sensores</span>
+                                <span class="risk-badge">🟡 Médio</span>
+                            </div>
+                            <div class="risk-item">
+                                <span>Disponibilidade de doca seca</span>
+                                <span class="risk-badge">🟢 Baixo</span>
+                            </div>
+                            <div class="risk-item">
+                                <span>Certificação do sistema de combate</span>
+                                <span class="risk-badge">🟡 Médio</span>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Aba 2: Cronograma -->
-                    <div id="tab-schedule" class="tab-content">
-                        <div class="dashboard-preview">
-                            <div class="dashboard-placeholder">
-                                <div class="two-columns">
-                                    <div class="info-card">
-                                        <div class="kpi-value">Q1 2024</div>
-                                        <div class="kpi-label">Início da Construção</div>
-                                        <div style="margin-top: 0.5rem; font-size: 0.7rem; color: #10b981;">✅ Concluído</div>
-                                    </div>
-                                    <div class="info-card">
-                                        <div class="kpi-value">Q3 2024</div>
-                                        <div class="kpi-label">Lançamento ao Mar</div>
-                                        <div style="margin-top: 0.5rem; font-size: 0.7rem; color: #f59e0b;">🔄 Em andamento</div>
-                                    </div>
-                                    <div class="info-card">
-                                        <div class="kpi-value">Q1 2025</div>
-                                        <div class="kpi-label">Testes de Mar</div>
-                                        <div style="margin-top: 0.5rem; font-size: 0.7rem; color: #64748b;">⏳ Planejado</div>
-                                    </div>
-                                    <div class="info-card">
-                                        <div class="kpi-value">Q3 2025</div>
-                                        <div class="kpi-label">Entrega Oficial</div>
-                                        <div style="margin-top: 0.5rem; font-size: 0.7rem; color: #64748b;">⏳ Planejado</div>
-                                    </div>
-                                </div>
-                                <div style="margin-top: 1rem;">
-                                    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 0.25rem;">
-                                        <span>Atraso em relação ao cronograma base</span>
-                                        <span style="color: #10b981;">-2%</span>
-                                    </div>
-                                    <div class="progress-bar"><div class="progress-fill" style="width: 2%; background: #10b981;"></div></div>
-                                    <div style="font-size: 0.7rem; color: #64748b; margin-top: 0.5rem;">Projeto dentro da janela de tolerância (±5%)</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Aba 3: Performance -->
-                    <div id="tab-performance" class="tab-content">
-                        <div class="dashboard-preview">
-                            <div class="dashboard-placeholder">
-                                <div class="kpi-row">
-                                    <div class="kpi">
-                                        <div class="kpi-value">94%</div>
-                                        <div class="kpi-label">Eficiência da Equipe</div>
-                                    </div>
-                                    <div class="kpi">
-                                        <div class="kpi-value">12</div>
-                                        <div class="kpi-label">Fornecedores Ativos</div>
-                                    </div>
-                                    <div class="kpi">
-                                        <div class="kpi-value">98%</div>
-                                        <div class="kpi-label">Conformidade Técnica</div>
-                                    </div>
-                                </div>
-                                <div style="margin: 0.8rem 0;">
-                                    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 0.25rem;">
-                                        <span>Custo Orçado vs Realizado</span>
-                                        <span>103%</span>
-                                    </div>
-                                    <div class="progress-bar"><div class="progress-fill" style="width: 103%; background: #f59e0b;"></div></div>
-                                    <div style="font-size: 0.7rem; color: #64748b; margin-top: 0.5rem;">Leve variação dentro do planejado</div>
-                                </div>
-                                <div class="two-columns" style="margin-top: 0.5rem;">
-                                    <div class="info-card">
-                                        <div class="kpi-value">45</div>
-                                        <div class="kpi-label">Riscos Mitigados</div>
-                                    </div>
-                                    <div class="info-card">
-                                        <div class="kpi-value">3</div>
-                                        <div class="kpi-label">Riscos em Acompanhamento</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 0.8rem; font-size: 0.7rem; color: #94a3b8; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 0.5rem;">
+                    <div style="margin-top: 0.8rem; font-size: 0.7rem; color: #94a3b8; text-align: center;">
                         ⚡ Dados ilustrativos baseados em indicadores reais do programa
                     </div>
                 </div>
@@ -684,35 +717,43 @@
             document.getElementById('content').innerHTML = html;
             document.getElementById('footer').innerHTML = `<p>Lucas Portilho — ${c.title}</p>`;
 
-            // Botão de e-mail corrigido
+            // CORREÇÃO DO E-MAIL - Usando link mailto diretamente
             const emailBtn = document.getElementById('emailBtn');
             if (emailBtn) {
-                emailBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.location.href = 'mailto:lucascoxev2@outlook.com?subject=' + encodeURIComponent('Power BI Analyst Opportunity - Lucas Portilho');
-                });
+                // Método 1: substituir o botão por um link <a>
+                const emailLink = document.createElement('a');
+                emailLink.href = 'mailto:lucascoxev2@outlook.com?subject=Power%20BI%20Analyst%20Opportunity%20-%20Lucas%20Portilho';
+                emailLink.className = 'btn btn-primary';
+                emailLink.style.textDecoration = 'none';
+                emailLink.innerHTML = emailBtn.innerHTML;
+                emailBtn.parentNode.replaceChild(emailLink, emailBtn);
             }
 
-            // Botão LinkedIn
+            // LinkedIn
             const linkedinBtn = document.getElementById('linkedinBtn');
             if (linkedinBtn) {
-                linkedinBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.open('https://www.linkedin.com/in/lucas-portilho/', '_blank');
-                });
+                const linkedinLink = document.createElement('a');
+                linkedinLink.href = 'https://www.linkedin.com/in/lucas-portilho/';
+                linkedinLink.target = '_blank';
+                linkedinLink.className = 'btn btn-outline';
+                linkedinLink.style.textDecoration = 'none';
+                linkedinLink.innerHTML = linkedinBtn.innerHTML;
+                linkedinBtn.parentNode.replaceChild(linkedinLink, linkedinBtn);
             }
 
-            // Botão GitHub
+            // GitHub
             const githubBtn = document.getElementById('githubBtn');
             if (githubBtn) {
-                githubBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.open('https://github.com/LucasCPortilho', '_blank');
-                });
+                const githubLink = document.createElement('a');
+                githubLink.href = 'https://github.com/LucasCPortilho';
+                githubLink.target = '_blank';
+                githubLink.className = 'btn btn-outline';
+                githubLink.style.textDecoration = 'none';
+                githubLink.innerHTML = githubBtn.innerHTML;
+                githubBtn.parentNode.replaceChild(githubLink, githubBtn);
             }
 
-            // Inicializar as abas do dashboard
-            initDashboardTabs();
+            initDashboard();
         }
 
         document.getElementById('btnPT').onclick = () => {
