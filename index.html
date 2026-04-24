@@ -424,16 +424,19 @@
                 <p style="margin-top: 0.5rem;">${content.footerSub}</p>
             `;
 
+            // E-MAIL: lucascoxev2@outlook.com
             document.getElementById('emailBtn').addEventListener('click', function(e) {
                 e.preventDefault();
-                window.location.href = 'mailto:lucascoxev2@outlook.com?subject=' + encodeURIComponent(currentLang === 'pt' ? 'Vi seu portfólio' : 'I saw your portfolio');
+                window.location.href = 'mailto:lucascoxev2@outlook.com?subject=' + encodeURIComponent(currentLang === 'pt' ? 'Vi seu portfólio e gostaria de conversar' : 'I saw your portfolio and would like to talk');
             });
 
+            // LINKEDIN: https://www.linkedin.com/in/lucas-portilho/
             document.getElementById('linkedinBtn').addEventListener('click', function(e) {
                 e.preventDefault();
-                alert(currentLang === 'pt' ? https://www.linkedin.com/in/lucas-portilho/);
+                window.open('https://www.linkedin.com/in/lucas-portilho/', '_blank');
             });
 
+            // GITHUB
             document.getElementById('githubBtn').addEventListener('click', function(e) {
                 e.preventDefault();
                 window.open('https://github.com/LucasCPortilho', '_blank');
