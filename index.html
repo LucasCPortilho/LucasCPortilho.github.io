@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Portilho | Project Analyst | Power BI | Defense</title>
+    <title>Lucas Portilho | Project Analyst | Power BI</title>
     <style>
         * {
             margin: 0;
@@ -12,188 +12,328 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #e2e8f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f6fa;
+            color: #1a2a3a;
             line-height: 1.5;
-            padding: 2rem;
-            min-height: 100vh;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 2rem;
         }
 
-        .language-switch {
+        /* Language Switcher */
+        .lang-switch {
             text-align: right;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
         .lang-btn {
-            background: #334155;
-            color: #e2e8f0;
-            padding: 0.3rem 0.8rem;
-            border-radius: 1rem;
-            text-decoration: none;
+            background: transparent;
+            border: 1px solid #cbd5e1;
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.5rem;
             font-size: 0.8rem;
-            margin-left: 0.5rem;
             cursor: pointer;
-            border: none;
+            margin-left: 0.5rem;
+            color: #475569;
+            transition: all 0.2s;
         }
 
         .lang-btn.active {
-            background: #60a5fa;
-            color: #0f172a;
+            background: #1e3a5f;
+            border-color: #1e3a5f;
+            color: white;
         }
 
+        /* Header */
         header {
-            text-align: center;
             margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e2e8f0;
         }
 
         h1 {
             font-size: 2.2rem;
-            background: linear-gradient(135deg, #60a5fa, #c084fc);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.25rem;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            color: #1e3a5f;
+            font-weight: 500;
             margin-bottom: 0.5rem;
         }
 
-        .badge {
-            display: inline-block;
-            background: #1e293b;
-            padding: 0.2rem 0.8rem;
-            border-radius: 1rem;
-            font-size: 0.7rem;
-            margin: 0.2rem;
-            border: 1px solid #334155;
+        .location {
+            color: #64748b;
+            font-size: 0.85rem;
         }
 
-        .tagline {
-            font-size: 1rem;
-            color: #94a3b8;
-            margin-top: 0.5rem;
-        }
-
-        .section {
-            background: #1e293b;
+        /* Cards */
+        .card {
+            background: white;
             border-radius: 1rem;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            border: 1px solid #334155;
-            transition: transform 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
         }
 
-        .section:hover {
-            transform: translateY(-3px);
-            border-color: #60a5fa;
-        }
-
-        h2 {
-            color: #60a5fa;
-            font-size: 1.3rem;
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            border-left: 3px solid #c084fc;
-            padding-left: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #1e3a5f;
+            display: inline-block;
         }
 
+        /* Skills */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 0.6rem;
             margin-top: 0.5rem;
         }
 
-        .skill-card {
-            background: #0f172a;
-            padding: 0.5rem 1rem;
+        .skill-tag {
+            background: #eef2ff;
+            color: #1e3a5f;
+            padding: 0.3rem 1rem;
             border-radius: 2rem;
             font-size: 0.8rem;
-            border: 1px solid #334155;
+            font-weight: 500;
         }
 
-        .project-highlight {
-            background: linear-gradient(135deg, #1e1b4b, #0f172a);
-            border-left: 4px solid #c084fc;
-            padding: 1.2rem;
-            border-radius: 0.8rem;
-            margin-top: 1rem;
+        /* Experience */
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
         }
 
+        .exp-title {
+            font-weight: 700;
+            color: #0f172a;
+            font-size: 1.05rem;
+        }
+
+        .exp-period {
+            color: #64748b;
+            font-size: 0.8rem;
+        }
+
+        .exp-company {
+            color: #1e3a5f;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .exp-desc {
+            color: #334155;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        /* Frigate Image */
         .frigate-img {
             width: 100%;
-            border-radius: 0.8rem;
+            border-radius: 0.75rem;
             margin: 1rem 0;
-            border: 1px solid #334155;
+            border: 1px solid #e2e8f0;
         }
 
-        .metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 0.8rem;
-            margin: 1rem 0;
-        }
-
-        .metric {
-            background: #0f172a;
-            padding: 0.8rem;
-            border-radius: 0.8rem;
+        .img-caption {
+            font-size: 0.7rem;
+            color: #64748b;
             text-align: center;
+            margin-top: 0.25rem;
+        }
+
+        /* Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .metric-card {
+            background: #f8fafc;
+            padding: 0.8rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
         }
 
         .metric-number {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #c084fc;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1e3a5f;
         }
 
         .metric-label {
             font-size: 0.7rem;
-            color: #94a3b8;
+            color: #64748b;
         }
 
-        .btn {
-            background: #60a5fa;
+        /* Dashboard Preview */
+        .dashboard-preview {
+            background: #f1f5f9;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .dashboard-placeholder {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .kpi-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .kpi {
+            flex: 1;
+            background: #f8fafc;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            border-left: 3px solid #1e3a5f;
+        }
+
+        .kpi-value {
+            font-size: 1.3rem;
+            font-weight: 700;
             color: #0f172a;
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.2s;
-            display: inline-block;
-            cursor: pointer;
-            border: none;
-            font-size: 0.8rem;
         }
 
-        .btn:hover {
-            background: #c084fc;
-            transform: scale(1.02);
+        .kpi-label {
+            font-size: 0.7rem;
+            color: #64748b;
         }
 
-        .contact-links {
+        .progress-bar {
+            background: #e2e8f0;
+            border-radius: 1rem;
+            height: 0.5rem;
+            margin: 0.5rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #1e3a5f;
+            width: 75%;
+            height: 100%;
+            border-radius: 1rem;
+        }
+
+        .simple-chart {
+            display: flex;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: #cbd5e1;
+            border-radius: 0.25rem;
+            height: 2rem;
+            position: relative;
+        }
+
+        .chart-bar.fill {
+            background: #1e3a5f;
+            height: 100%;
+            border-radius: 0.25rem;
+        }
+
+        /* Achievements */
+        .achievement-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievement-list li {
+            margin-bottom: 0.6rem;
+            padding-left: 1.2rem;
+            position: relative;
+            font-size: 0.9rem;
+            color: #334155;
+        }
+
+        .achievement-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #1e3a5f;
+        }
+
+        /* Buttons */
+        .contact-buttons {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
             margin-top: 1rem;
         }
 
+        .btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #1e3a5f;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0f2a4a;
+        }
+
+        .btn-outline {
+            border: 1px solid #cbd5e1;
+            background: white;
+            color: #1e3a5f;
+        }
+
+        .btn-outline:hover {
+            border-color: #1e3a5f;
+        }
+
         footer {
             text-align: center;
             margin-top: 2rem;
             padding-top: 1rem;
-            border-top: 1px solid #334155;
-            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            color: #94a3b8;
             font-size: 0.75rem;
         }
 
-        @media (max-width: 600px) {
-            body {
+        @media (max-width: 700px) {
+            .container {
                 padding: 1rem;
             }
             h1 {
@@ -204,188 +344,227 @@
 </head>
 <body>
     <div class="container">
-        <div class="language-switch">
+        <div class="lang-switch">
             <button class="lang-btn active" id="btnPT">🇧🇷 PT</button>
             <button class="lang-btn" id="btnEN">🇺🇸 EN</button>
         </div>
 
         <div id="content"></div>
-
         <footer id="footer">
-            <p>🌍 Disponível para oportunidades internacionais remotas</p>
-            <p>📍 Trabalhando para receber em Euros</p>
+            <p>Lucas Portilho — Project Analyst</p>
         </footer>
     </div>
 
     <script>
         const contentPT = {
             name: "Lucas Portilho",
-            title: "Analista de Projetos | Power BI | Defesa",
-            location: "📍 Brasil | 🌍 Disponível para trabalho remoto internacional",
-            about: "Sobre mim",
-            aboutText: "Analista de Projetos com experiência em projetos de alto nível no setor de defesa. Especialista em Power BI, cronogramas e gestão de projetos complexos. Atuei diretamente no programa de construção da Fragata MEKO A-200 para a Marinha do Brasil, gerenciando dashboards, indicadores de performance e integração de equipes multidisciplinares.",
-            
-            experience: "⚓ Experiência de Destaque",
-            projectName: "Programa Fragata MEKO A-200 - Marinha do Brasil",
-            projectDesc: "Atuação como Analista de Projetos no mais significativo programa de defesa naval do Brasil. Responsável pelo desenvolvimento e manutenção de dashboards em Power BI para acompanhamento de KPIs de produção, cronogramas e custos. Integração com equipes técnicas da TKMS (Alemanha) e fornecedores internacionais.",
-            specs: "Especificações Técnicas da Fragata",
-            
-            tools: "🛠️ Ferramentas e Tecnologias",
-            skillsDetails: ["Power BI (Dashboards, DAX, ETL)", "Microsoft Project (Cronogramas)", "Primavera P6 (Planejamento)", "Jira (Gestão de Tarefas)", "Excel Avançado (Power Query)", "Pacote Office 365", "Gestão de KPIs e OKRs", "Metodologias Ágeis (Scrum/Kanban)"],
-            
-            metricsTitle: "Métricas do Projeto",
+            title: "Analista de Projetos | Power BI",
+            location: "Brasil",
+            about: "Sobre",
+            aboutText: "Analista de Projetos com experiência em programas complexos do setor de defesa. Especialista em Power BI, gestão de cronogramas e integração de equipes multidisciplinares. Atuei no programa de construção da Fragata MEKO A-200 para a Marinha do Brasil, desenvolvendo dashboards e acompanhando KPIs de produção e performance.",
+            experience: "Experiência",
+            projectName: "Programa Fragata MEKO A-200",
+            company: "Marinha do Brasil / TKMS",
+            period: "2022 — Presente",
+            projectDesc: "Atuação direta no maior programa de defesa naval do Brasil. Responsável pelo desenvolvimento e manutenção de dashboards em Power BI para acompanhamento de indicadores de produção, status de cronograma e performance da construção naval. Interface com equipes técnicas alemãs (TKMS) e fornecedores internacionais.",
+            specs: "Especificações da Fragata",
+            tools: "Ferramentas",
+            skills: ["Power BI", "Microsoft Project", "Primavera P6", "Jira", "Excel", "Pacote Office"],
+            dashboardTitle: "Exemplo de Dashboard (Power BI)",
+            dashboardDesc: "Abaixo, uma representação visual do tipo de dashboard desenvolvido para o programa. Indicadores de progresso, status de atividades e KPIs de produção.",
             metrics: [
-                { number: "121m", label: "Comprimento da Fragata" },
-                { number: "3.950t", label: "Deslocamento" },
-                { number: "29+ nós", label: "Velocidade Máxima" },
-                { number: "125+", label: "Tripulação" }
+                { label: "Comprimento", value: "121m" },
+                { label: "Deslocamento", value: "3.950t" },
+                { label: "Velocidade", value: "29+ nós" },
+                { label: "Tripulação", value: "125+" }
             ],
-            
-            achievements: "🏆 Principais Realizações",
+            achievements: "Principais Entregas",
             achievementsList: [
-                "Criação de dashboard executivo em Power BI com 15+ KPIs para diretoria do programa",
-                "Redução de 30% no tempo de consolidação de relatórios semanais",
-                "Treinamento de 20+ usuários no uso de dashboards interativos",
-                "Integração de dados de 3 sistemas diferentes (Primavera, Jira, Excel)",
-                "Participação em reuniões com stakeholders internacionais (Alemanha)"
+                "Dashboards de acompanhamento de produção com atualização semanal",
+                "Integração de dados entre Primavera, Jira e Excel para relatórios gerenciais",
+                "Redução no tempo de consolidação de relatórios",
+                "Treinamento de usuários para utilização dos dashboards"
             ],
-            
-            goal: "🎯 Objetivo Profissional",
-            goalText: "Atuar como Analista de Projetos / Power BI Specialist remoto para empresas europeias, aplicando minha experiência em projetos complexos e gestão de dados para gerar valor e eficiência.",
-            
-            contact: "📫 Contato",
-            emailBtn: "📧 Enviar E-mail",
-            linkedinBtn: "💼 LinkedIn",
-            githubBtn: "🐙 GitHub"
+            goal: "Atuação Profissional",
+            goalText: "Atuação como Analista de Projetos / Power BI Specialist em projetos remotos para empresas internacionais, aplicando experiência em projetos complexos e análise de dados para suporte à decisão.",
+            contact: "Contato",
+            emailText: "E-mail",
+            linkedinText: "LinkedIn",
+            githubText: "GitHub"
         };
 
         const contentEN = {
             name: "Lucas Portilho",
-            title: "Project Analyst | Power BI | Defense Sector",
-            location: "📍 Brazil | 🌍 Available for international remote work",
-            about: "About Me",
-            aboutText: "Project Analyst with experience in high-level defense sector projects. Power BI specialist focused on dashboards, schedules, and complex project management. Worked directly on the MEKO A-200 Frigate construction program for the Brazilian Navy, managing dashboards, performance indicators, and multidisciplinary team integration.",
-            
-            experience: "⚓ Featured Experience",
-            projectName: "MEKO A-200 Frigate Program - Brazilian Navy",
-            projectDesc: "Project Analyst role in Brazil's most significant naval defense program. Responsible for developing and maintaining Power BI dashboards to track production KPIs, schedules, and costs. Integration with TKMS (Germany) technical teams and international suppliers.",
-            specs: "Frigate Technical Specifications",
-            
-            tools: "🛠️ Tools & Technologies",
-            skillsDetails: ["Power BI (Dashboards, DAX, ETL)", "Microsoft Project (Schedules)", "Primavera P6 (Planning)", "Jira (Task Management)", "Advanced Excel (Power Query)", "Office 365 Suite", "KPI & OKR Management", "Agile Methodologies (Scrum/Kanban)"],
-            
-            metricsTitle: "Project Metrics",
+            title: "Project Analyst | Power BI",
+            location: "Brazil",
+            about: "About",
+            aboutText: "Project Analyst with experience in complex defense sector programs. Power BI specialist focused on dashboards, schedule management, and multidisciplinary team integration. Worked on the MEKO A-200 Frigate construction program for the Brazilian Navy, developing dashboards and tracking production and performance KPIs.",
+            experience: "Experience",
+            projectName: "MEKO A-200 Frigate Program",
+            company: "Brazilian Navy / TKMS",
+            period: "2022 — Present",
+            projectDesc: "Direct involvement in Brazil's largest naval defense program. Responsible for developing and maintaining Power BI dashboards to track production indicators, schedule status, and construction performance. Interface with German technical teams (TKMS) and international suppliers.",
+            specs: "Frigate Specifications",
+            tools: "Tools",
+            skills: ["Power BI", "Microsoft Project", "Primavera P6", "Jira", "Excel", "Office Suite"],
+            dashboardTitle: "Dashboard Example (Power BI)",
+            dashboardDesc: "Below is a visual representation of the type of dashboard developed for the program. Progress indicators, activity status, and production KPIs.",
             metrics: [
-                { number: "121m", label: "Frigate Length" },
-                { number: "3,950t", label: "Displacement" },
-                { number: "29+ knots", label: "Max Speed" },
-                { number: "125+", label: "Crew" }
+                { label: "Length", value: "121m" },
+                { label: "Displacement", value: "3,950t" },
+                { label: "Speed", value: "29+ knots" },
+                { label: "Crew", value: "125+" }
             ],
-            
-            achievements: "🏆 Key Achievements",
+            achievements: "Key Deliverables",
             achievementsList: [
-                "Created executive Power BI dashboard with 15+ KPIs for program directorate",
-                "Reduced weekly report consolidation time by 30%",
-                "Trained 20+ users on interactive dashboards",
-                "Integrated data from 3 different systems (Primavera, Jira, Excel)",
-                "Participated in meetings with international stakeholders (Germany)"
+                "Production tracking dashboards with weekly updates",
+                "Data integration between Primavera, Jira, and Excel for management reports",
+                "Reduced report consolidation time",
+                "User training for dashboard utilization"
             ],
-            
-            goal: "🎯 Professional Goal",
-            goalText: "Work as a remote Project Analyst / Power BI Specialist for European companies, applying my experience in complex projects and data management to generate value and efficiency.",
-            
-            contact: "📫 Contact",
-            emailBtn: "📧 Send Email",
-            linkedinBtn: "💼 LinkedIn",
-            githubBtn: "🐙 GitHub"
+            goal: "Professional Focus",
+            goalText: "Working as a Project Analyst / Power BI Specialist on remote projects for international companies, applying experience in complex projects and data analysis to support decision-making.",
+            contact: "Contact",
+            emailText: "Email",
+            linkedinText: "LinkedIn",
+            githubText: "GitHub"
         };
 
         let currentLang = 'pt';
 
         function renderContent() {
-            const content = currentLang === 'pt' ? contentPT : contentEN;
+            const c = currentLang === 'pt' ? contentPT : contentEN;
             
             const html = `
                 <header>
-                    <h1>${content.name}</h1>
-                    <div class="tagline">${content.title}</div>
-                    <div class="tagline" style="font-size: 0.8rem;">${content.location}</div>
+                    <h1>${c.name}</h1>
+                    <div class="title">${c.title}</div>
+                    <div class="location">📍 ${c.location}</div>
                 </header>
 
-                <div class="section">
-                    <h2>📌 ${content.about}</h2>
-                    <p>${content.aboutText}</p>
+                <div class="card">
+                    <div class="card-title">📌 ${c.about}</div>
+                    <p style="margin-top: 0.8rem; color: #334155; font-size: 0.9rem;">${c.aboutText}</p>
                 </div>
 
-                <div class="section">
-                    <h2>${content.experience}</h2>
-                    <div class="project-highlight">
-                        <h3 style="color: #c084fc; margin-bottom: 0.5rem;">🚢 ${content.projectName}</h3>
-                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">${content.projectDesc}</p>
-                        <h4 style="color: #60a5fa; font-size: 0.9rem; margin: 0.8rem 0 0.5rem;">${content.specs}</h4>
-                        <div class="metrics">
-                            ${content.metrics.map(m => `
-                                <div class="metric">
-                                    <div class="metric-number">${m.number}</div>
+                <div class="card">
+                    <div class="card-title">${c.experience}</div>
+                    <div style="margin-top: 0.8rem;">
+                        <div class="exp-header">
+                            <span class="exp-title">${c.projectName}</span>
+                            <span class="exp-period">${c.period}</span>
+                        </div>
+                        <div class="exp-company">${c.company}</div>
+                        <p class="exp-desc">${c.projectDesc}</p>
+                        
+                        <img class="frigate-img" src="https://www.tkmsgroup.com/tkms-master/media/tkms/18-products/02-mecko-a200/meko-a200_900x500.png?w=900&hash=F5B4C8D9E2A3B4C5D6E7F8A9B0C1D2E3" alt="MEKO A-200 Frigate" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/6a/Frigate_MEKO_A-200.jpg'">
+                        <div class="img-caption">Fragata MEKO A-200 — Classe Tamandaré (Marinha do Brasil)</div>
+                        
+                        <h4 style="margin: 1rem 0 0.5rem; color: #1e3a5f; font-size: 0.85rem;">${c.specs}</h4>
+                        <div class="metrics-grid">
+                            ${c.metrics.map(m => `
+                                <div class="metric-card">
+                                    <div class="metric-number">${m.value}</div>
                                     <div class="metric-label">${m.label}</div>
                                 </div>
                             `).join('')}
                         </div>
-                        <div style="margin-top: 0.8rem;">
-                            <span class="badge">⚓ Marinha do Brasil</span>
-                            <span class="badge">🇩🇪 Cooperação TKMS</span>
-                            <span class="badge">🏭 Construção Naval</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">🛠️ ${c.tools}</div>
+                    <div class="skills-grid" style="margin-top: 0.8rem;">
+                        ${c.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">📊 ${c.dashboardTitle}</div>
+                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">${c.dashboardDesc}</p>
+                    <div class="dashboard-preview">
+                        <div class="dashboard-placeholder">
+                            <div class="kpi-row">
+                                <div class="kpi">
+                                    <div class="kpi-value">87%</div>
+                                    <div class="kpi-label">Progresso Geral</div>
+                                </div>
+                                <div class="kpi">
+                                    <div class="kpi-value">42</div>
+                                    <div class="kpi-label">Atividades Concluídas</div>
+                                </div>
+                                <div class="kpi">
+                                    <div class="kpi-value">8</div>
+                                    <div class="kpi-label">Em Andamento</div>
+                                </div>
+                            </div>
+                            <div style="margin: 0.8rem 0;">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 0.25rem;">
+                                    <span>Construção do Casco</span>
+                                    <span>92%</span>
+                                </div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 92%;"></div></div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin: 0.5rem 0 0.25rem;">
+                                    <span>Sistema de Propulsão</span>
+                                    <span>78%</span>
+                                </div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 78%;"></div></div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin: 0.5rem 0 0.25rem;">
+                                    <span>Sistema de Combate</span>
+                                    <span>63%</span>
+                                </div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 63%;"></div></div>
+                            </div>
+                            <div style="margin-top: 1rem;">
+                                <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 0.3rem;">Atividades por Área</div>
+                                <div class="simple-chart">
+                                    <div style="flex:1; text-align: center; font-size: 0.65rem;">Casco</div>
+                                    <div style="flex:1; text-align: center; font-size: 0.65rem;">Propulsão</div>
+                                    <div style="flex:1; text-align: center; font-size: 0.65rem;">Elétrica</div>
+                                    <div style="flex:1; text-align: center; font-size: 0.65rem;">Armamento</div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 0.8rem; font-size: 0.7rem; color: #94a3b8; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 0.5rem;">
+                                ⚡ Dados ilustrativos baseados em indicadores reais do programa
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="section">
-                    <h2>${content.tools}</h2>
-                    <div class="skills-grid">
-                        ${content.skillsDetails.map(skill => `<span class="skill-card">${skill}</span>`).join('')}
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2>${content.achievements}</h2>
-                    <ul style="margin-left: 1.2rem; color: #cbd5e1;">
-                        ${content.achievementsList.map(item => `<li style="margin-bottom: 0.5rem;">${item}</li>`).join('')}
+                <div class="card">
+                    <div class="card-title">🏆 ${c.achievements}</div>
+                    <ul class="achievement-list" style="margin-top: 0.8rem;">
+                        ${c.achievementsList.map(item => `<li>${item}</li>`).join('')}
                     </ul>
                 </div>
 
-                <div class="section">
-                    <h2>${content.goal}</h2>
-                    <p>${content.goalText}</p>
+                <div class="card">
+                    <div class="card-title">🎯 ${c.goal}</div>
+                    <p style="margin-top: 0.8rem; color: #334155; font-size: 0.9rem;">${c.goalText}</p>
                 </div>
 
-                <div class="section">
-                    <h2>${content.contact}</h2>
-                    <div class="contact-links">
-                        <a href="#" class="btn" id="emailBtn">${content.emailBtn}</a>
-                        <a href="#" class="btn" id="linkedinBtn">${content.linkedinBtn}</a>
-                        <a href="#" class="btn" id="githubBtn">${content.githubBtn}</a>
+                <div class="card">
+                    <div class="card-title">📫 ${c.contact}</div>
+                    <div class="contact-buttons">
+                        <a href="#" class="btn btn-primary" id="emailBtn">📧 ${c.emailText}</a>
+                        <a href="#" class="btn btn-outline" id="linkedinBtn">💼 ${c.linkedinText}</a>
+                        <a href="#" class="btn btn-outline" id="githubBtn">🐙 ${c.githubText}</a>
                     </div>
                 </div>
             `;
             
             document.getElementById('content').innerHTML = html;
-            
-            document.getElementById('footer').innerHTML = `
-                <p>🌍 ${currentLang === 'pt' ? 'Disponível para oportunidades internacionais remotas' : 'Available for international remote opportunities'}</p>
-                <p>📍 ${currentLang === 'pt' ? 'Trabalhando para receber em Euros' : 'Working to earn in Euros'}</p>
-            `;
+            document.getElementById('footer').innerHTML = `<p>Lucas Portilho — ${c.title}</p>`;
 
-            document.getElementById('emailBtn').addEventListener('click', (e) => {
+            document.getElementById('emailBtn')?.addEventListener('click', (e) => {
                 e.preventDefault();
-                window.location.href = 'mailto:lucascoxev2@outlook.com?subject=' + encodeURIComponent(currentLang === 'pt' ? 'Vi seu portfólio - Oportunidade para Analista de Projetos' : 'I saw your portfolio - Project Analyst Opportunity');
+                window.location.href = 'mailto:lucascoxev2@outlook.com?subject=' + encodeURIComponent('Contato profissional - Lucas Portilho');
             });
-
-            document.getElementById('linkedinBtn').addEventListener('click', (e) => {
+            document.getElementById('linkedinBtn')?.addEventListener('click', (e) => {
                 e.preventDefault();
                 window.open('https://www.linkedin.com/in/lucas-portilho/', '_blank');
             });
-
-            document.getElementById('githubBtn').addEventListener('click', (e) => {
+            document.getElementById('githubBtn')?.addEventListener('click', (e) => {
                 e.preventDefault();
                 window.open('https://github.com/LucasCPortilho', '_blank');
             });
@@ -397,14 +576,12 @@
             document.getElementById('btnEN').classList.remove('active');
             renderContent();
         };
-
         document.getElementById('btnEN').onclick = () => {
             currentLang = 'en';
             document.getElementById('btnEN').classList.add('active');
             document.getElementById('btnPT').classList.remove('active');
             renderContent();
         };
-
         renderContent();
     </script>
 </body>
