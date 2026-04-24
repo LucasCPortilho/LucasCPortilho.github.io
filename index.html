@@ -705,4 +705,14 @@
                 </div>
             `;
             
-            document.getElementById
+            document.getElementById('content').innerHTML = html;
+            document.getElementById('footer').innerHTML = `<p>© ${new Date().getFullYear()} Lucas Portilho — Power BI Analyst</p>`;
+            initDashboardTabs();
+        }
+
+        document.getElementById('btnPT').onclick = () => { currentLang = 'pt'; document.getElementById('btnPT').classList.add('active'); document.getElementById('btnEN').classList.remove('active'); renderContent(); };
+        document.getElementById('btnEN').onclick = () => { currentLang = 'en'; document.getElementById('btnEN').classList.add('active'); document.getElementById('btnPT').classList.remove('active'); renderContent(); };
+        renderContent();
+    </script>
+</body>
+</html>
