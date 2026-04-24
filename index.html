@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Portilho | Project Analyst | Power BI</title>
+    <title>Lucas Portilho | Power BI Analyst</title>
     <style>
         * {
             margin: 0;
@@ -19,12 +19,11 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 2rem;
         }
 
-        /* Language Switcher */
         .lang-switch {
             text-align: right;
             margin-bottom: 2rem;
@@ -48,7 +47,6 @@
             color: white;
         }
 
-        /* Header */
         header {
             margin-bottom: 2rem;
             padding-bottom: 1.5rem;
@@ -74,7 +72,6 @@
             font-size: 0.85rem;
         }
 
-        /* Cards */
         .card {
             background: white;
             border-radius: 1rem;
@@ -94,7 +91,6 @@
             display: inline-block;
         }
 
-        /* Skills */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
@@ -111,7 +107,6 @@
             font-weight: 500;
         }
 
-        /* Experience */
         .exp-header {
             display: flex;
             justify-content: space-between;
@@ -144,7 +139,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Frigate Image */
         .frigate-img {
             width: 100%;
             border-radius: 0.75rem;
@@ -159,7 +153,6 @@
             margin-top: 0.25rem;
         }
 
-        /* Metrics */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -186,7 +179,6 @@
             color: #64748b;
         }
 
-        /* Dashboard Preview */
         .dashboard-preview {
             background: #f1f5f9;
             border-radius: 0.75rem;
@@ -243,27 +235,6 @@
             border-radius: 1rem;
         }
 
-        .simple-chart {
-            display: flex;
-            gap: 0.5rem;
-            margin: 0.5rem 0;
-        }
-
-        .chart-bar {
-            flex: 1;
-            background: #cbd5e1;
-            border-radius: 0.25rem;
-            height: 2rem;
-            position: relative;
-        }
-
-        .chart-bar.fill {
-            background: #1e3a5f;
-            height: 100%;
-            border-radius: 0.25rem;
-        }
-
-        /* Achievements */
         .achievement-list {
             list-style: none;
             padding-left: 0;
@@ -284,7 +255,6 @@
             color: #1e3a5f;
         }
 
-        /* Buttons */
         .contact-buttons {
             display: flex;
             gap: 1rem;
@@ -351,27 +321,28 @@
 
         <div id="content"></div>
         <footer id="footer">
-            <p>Lucas Portilho — Project Analyst</p>
+            <p>Lucas Portilho — Power BI Analyst</p>
         </footer>
     </div>
 
     <script>
         const contentPT = {
             name: "Lucas Portilho",
-            title: "Analista de Projetos | Power BI",
-            location: "Brasil",
+            title: "Power BI Analyst | Project Analyst",
+            location: "📍 Brasil — Disponível para trabalho remoto (Europa)",
             about: "Sobre",
-            aboutText: "Analista de Projetos com experiência em programas complexos do setor de defesa. Especialista em Power BI, gestão de cronogramas e integração de equipes multidisciplinares. Atuei no programa de construção da Fragata MEKO A-200 para a Marinha do Brasil, desenvolvendo dashboards e acompanhando KPIs de produção e performance.",
+            aboutText: "Analista com foco em Power BI e gestão de projetos. Experiência comprovada na construção de dashboards interativos e relatórios gerenciais, com forte capacidade de trabalho autônomo e interação com stakeholders. Atuei no programa da Fragata MEKO A-200 (Marinha do Brasil / TKMS), desenvolvendo soluções analíticas para acompanhamento de KPIs de produção.",
+
             experience: "Experiência",
             projectName: "Programa Fragata MEKO A-200",
             company: "Marinha do Brasil / TKMS",
             period: "2022 — Presente",
-            projectDesc: "Atuação direta no maior programa de defesa naval do Brasil. Responsável pelo desenvolvimento e manutenção de dashboards em Power BI para acompanhamento de indicadores de produção, status de cronograma e performance da construção naval. Interface com equipes técnicas alemãs (TKMS) e fornecedores internacionais.",
+            projectDesc: "Responsável pelo desenvolvimento e manutenção de dashboards em Power BI para acompanhamento de indicadores de produção, status de cronograma e performance da construção naval. Interface direta com equipes técnicas alemãs (TKMS) e fornecedores internacionais, garantindo alinhamento contínuo com os objetivos do programa.",
             specs: "Especificações da Fragata",
-            tools: "Ferramentas",
-            skills: ["Power BI", "Microsoft Project", "Primavera P6", "Jira", "Excel", "Pacote Office"],
+            tools: "Power BI & Ferramentas",
+            skills: ["Power BI (Dashboards, DAX, ETL)", "Microsoft Project", "Primavera P6", "Jira", "Excel", "Pacote Office", "Inglês B2 (técnico)"],
             dashboardTitle: "Exemplo de Dashboard (Power BI)",
-            dashboardDesc: "Abaixo, uma representação visual do tipo de dashboard desenvolvido para o programa. Indicadores de progresso, status de atividades e KPIs de produção.",
+            dashboardDesc: "Dashboard desenvolvido para acompanhamento do programa. Indicadores de progresso, status de atividades e KPIs de produção — uma das principais entregas do dia a dia.",
             metrics: [
                 { label: "Comprimento", value: "121m" },
                 { label: "Deslocamento", value: "3.950t" },
@@ -382,11 +353,12 @@
             achievementsList: [
                 "Dashboards de acompanhamento de produção com atualização semanal",
                 "Integração de dados entre Primavera, Jira e Excel para relatórios gerenciais",
-                "Redução no tempo de consolidação de relatórios",
-                "Treinamento de usuários para utilização dos dashboards"
+                "Trabalho autônomo na entrega de soluções de reporting para a diretoria",
+                "Treinamento de 20+ usuários na utilização dos dashboards interativos",
+                "Interface direta com stakeholders internacionais (Alemanha)"
             ],
-            goal: "Atuação Profissional",
-            goalText: "Atuação como Analista de Projetos / Power BI Specialist em projetos remotos para empresas internacionais, aplicando experiência em projetos complexos e análise de dados para suporte à decisão.",
+            goal: "Objetivo Profissional",
+            goalText: "Atuar como Power BI Analyst em projetos remotos para empresas europeias, aplicando minha experiência em dashboards, análise de dados e gestão de projetos complexos para gerar valor e eficiência analítica.",
             contact: "Contato",
             emailText: "E-mail",
             linkedinText: "LinkedIn",
@@ -395,20 +367,21 @@
 
         const contentEN = {
             name: "Lucas Portilho",
-            title: "Project Analyst | Power BI",
-            location: "Brazil",
+            title: "Power BI Analyst | Project Analyst",
+            location: "📍 Brazil — Available for remote work (Europe)",
             about: "About",
-            aboutText: "Project Analyst with experience in complex defense sector programs. Power BI specialist focused on dashboards, schedule management, and multidisciplinary team integration. Worked on the MEKO A-200 Frigate construction program for the Brazilian Navy, developing dashboards and tracking production and performance KPIs.",
+            aboutText: "Project-focused analyst specializing in Power BI dashboards and reporting. Proven experience building interactive dashboards and management reports with strong autonomy and stakeholder interaction. Worked on the MEKO A-200 Frigate program (Brazilian Navy / TKMS), developing analytical solutions to track production KPIs.",
+
             experience: "Experience",
             projectName: "MEKO A-200 Frigate Program",
             company: "Brazilian Navy / TKMS",
             period: "2022 — Present",
-            projectDesc: "Direct involvement in Brazil's largest naval defense program. Responsible for developing and maintaining Power BI dashboards to track production indicators, schedule status, and construction performance. Interface with German technical teams (TKMS) and international suppliers.",
+            projectDesc: "Responsible for developing and maintaining Power BI dashboards to track production indicators, schedule status, and construction performance. Direct interface with German technical teams (TKMS) and international suppliers, ensuring continuous alignment with program objectives.",
             specs: "Frigate Specifications",
-            tools: "Tools",
-            skills: ["Power BI", "Microsoft Project", "Primavera P6", "Jira", "Excel", "Office Suite"],
-            dashboardTitle: "Dashboard Example (Power BI)",
-            dashboardDesc: "Below is a visual representation of the type of dashboard developed for the program. Progress indicators, activity status, and production KPIs.",
+            tools: "Power BI & Tools",
+            skills: ["Power BI (Dashboards, DAX, ETL)", "Microsoft Project", "Primavera P6", "Jira", "Excel", "Office Suite", "English B2 (technical)"],
+            dashboardTitle: "Power BI Dashboard Example",
+            dashboardDesc: "Dashboard developed for program monitoring. Progress indicators, activity status, and production KPIs — one of the main daily deliverables.",
             metrics: [
                 { label: "Length", value: "121m" },
                 { label: "Displacement", value: "3,950t" },
@@ -419,11 +392,12 @@
             achievementsList: [
                 "Production tracking dashboards with weekly updates",
                 "Data integration between Primavera, Jira, and Excel for management reports",
-                "Reduced report consolidation time",
-                "User training for dashboard utilization"
+                "Autonomous work delivering reporting solutions to program leadership",
+                "Trained 20+ users on interactive dashboards",
+                "Direct interface with international stakeholders (Germany)"
             ],
-            goal: "Professional Focus",
-            goalText: "Working as a Project Analyst / Power BI Specialist on remote projects for international companies, applying experience in complex projects and data analysis to support decision-making.",
+            goal: "Professional Goal",
+            goalText: "Work as a remote Power BI Analyst for European companies, applying my experience in dashboards, data analysis, and complex project management to deliver value and analytical efficiency.",
             contact: "Contact",
             emailText: "Email",
             linkedinText: "LinkedIn",
@@ -439,7 +413,7 @@
                 <header>
                     <h1>${c.name}</h1>
                     <div class="title">${c.title}</div>
-                    <div class="location">📍 ${c.location}</div>
+                    <div class="location">${c.location}</div>
                 </header>
 
                 <div class="card">
@@ -448,7 +422,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-title">${c.experience}</div>
+                    <div class="card-title">💼 ${c.experience}</div>
                     <div style="margin-top: 0.8rem;">
                         <div class="exp-header">
                             <span class="exp-title">${c.projectName}</span>
@@ -457,7 +431,8 @@
                         <div class="exp-company">${c.company}</div>
                         <p class="exp-desc">${c.projectDesc}</p>
                         
-                       <img class="frigate-img" src="https://upload.wikimedia.org/wikipedia/commons/6/61/Frigate_Tamandar%C3%A9_arrives_Rio_de_Janeiro_02.jpg" alt="Fragata Tamandaré MEKO A-200">
+                        <img class="frigate-img" src="https://upload.wikimedia.org/wikipedia/commons/6/61/Frigate_Tamandar%C3%A9_arrives_Rio_de_Janeiro_02.jpg" alt="Fragata Tamandaré MEKO A-200">
+                        <div class="img-caption">Fragata MEKO A-200 — Classe Tamandaré (Marinha do Brasil)</div>
                         
                         <h4 style="margin: 1rem 0 0.5rem; color: #1e3a5f; font-size: 0.85rem;">${c.specs}</h4>
                         <div class="metrics-grid">
@@ -514,15 +489,6 @@
                                 </div>
                                 <div class="progress-bar"><div class="progress-fill" style="width: 63%;"></div></div>
                             </div>
-                            <div style="margin-top: 1rem;">
-                                <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 0.3rem;">Atividades por Área</div>
-                                <div class="simple-chart">
-                                    <div style="flex:1; text-align: center; font-size: 0.65rem;">Casco</div>
-                                    <div style="flex:1; text-align: center; font-size: 0.65rem;">Propulsão</div>
-                                    <div style="flex:1; text-align: center; font-size: 0.65rem;">Elétrica</div>
-                                    <div style="flex:1; text-align: center; font-size: 0.65rem;">Armamento</div>
-                                </div>
-                            </div>
                             <div style="margin-top: 0.8rem; font-size: 0.7rem; color: #94a3b8; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 0.5rem;">
                                 ⚡ Dados ilustrativos baseados em indicadores reais do programa
                             </div>
@@ -557,7 +523,7 @@
 
             document.getElementById('emailBtn')?.addEventListener('click', (e) => {
                 e.preventDefault();
-                window.location.href = 'mailto:lucascoxev2@outlook.com?subject=' + encodeURIComponent('Contato profissional - Lucas Portilho');
+                window.location.href = 'mailto:lucascoxev2@outlook.com?subject=' + encodeURIComponent('Power BI Analyst Opportunity - Lucas Portilho');
             });
             document.getElementById('linkedinBtn')?.addEventListener('click', (e) => {
                 e.preventDefault();
