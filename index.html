@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucas Portilho | Power BI Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -48,30 +49,51 @@
             color: white;
         }
 
-        /* Header */
-        header {
+        /* Header com Foto */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
             margin-bottom: 2rem;
             padding-bottom: 1.5rem;
             border-bottom: 2px solid #e2e8f0;
+            flex-wrap: wrap;
         }
-
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: #e2e8f0;
+        }
+        .profile-info {
+            flex: 1;
+        }
         h1 {
             font-size: 2.2rem;
             font-weight: 600;
             color: #0f172a;
             margin-bottom: 0.25rem;
         }
-
         .title {
             font-size: 1.2rem;
             color: #1e3a5f;
             font-weight: 500;
             margin-bottom: 0.5rem;
         }
-
         .location {
             color: #64748b;
             font-size: 0.85rem;
+        }
+        .badge {
+            background: #e2e8f0;
+            padding: 0.2rem 0.6rem;
+            border-radius: 1rem;
+            font-size: 0.7rem;
+            margin-right: 0.5rem;
+            color: #1e293b;
         }
 
         /* Cards */
@@ -84,11 +106,9 @@
             border: 1px solid #e2e8f0;
             transition: all 0.2s;
         }
-
         .card:hover {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
         }
-
         .card-title {
             font-size: 1.2rem;
             font-weight: 600;
@@ -98,15 +118,12 @@
             border-bottom: 3px solid #1e3a5f;
             display: inline-block;
         }
-
-        /* Skills */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 0.6rem;
             margin-top: 0.5rem;
         }
-
         .skill-tag {
             background: #eef2ff;
             color: #1e3a5f;
@@ -115,61 +132,34 @@
             font-size: 0.8rem;
             font-weight: 500;
         }
-
-        /* Experience */
         .exp-header {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
-
         .exp-title {
             font-weight: 700;
             color: #0f172a;
             font-size: 1.05rem;
         }
-
-        .exp-period {
-            color: #64748b;
-            font-size: 0.8rem;
-        }
-
         .exp-company {
             color: #1e3a5f;
             font-weight: 500;
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
-
-        .exp-desc {
-            color: #334155;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-
         .frigate-img {
             width: 100%;
             border-radius: 0.75rem;
             margin: 1rem 0;
             border: 1px solid #e2e8f0;
         }
-
-        .img-caption {
-            font-size: 0.7rem;
-            color: #64748b;
-            text-align: center;
-            margin-top: 0.25rem;
-        }
-
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 1rem;
             margin: 1rem 0;
         }
-
         .metric-card {
             background: #f8fafc;
             padding: 0.8rem;
@@ -177,16 +167,10 @@
             text-align: center;
             border: 1px solid #e2e8f0;
         }
-
         .metric-number {
             font-size: 1.4rem;
             font-weight: 700;
             color: #1e3a5f;
-        }
-
-        .metric-label {
-            font-size: 0.7rem;
-            color: #64748b;
         }
 
         /* Dashboard Moderno */
@@ -196,7 +180,6 @@
             padding: 1rem;
             margin-top: 0.5rem;
         }
-
         .dashboard-tabs {
             display: flex;
             gap: 0.5rem;
@@ -204,7 +187,6 @@
             border-bottom: 1px solid #334155;
             padding-bottom: 0.5rem;
         }
-
         .tab-btn {
             background: transparent;
             border: none;
@@ -216,62 +198,37 @@
             color: #94a3b8;
             transition: all 0.2s;
         }
-
-        .tab-btn.active {
+        .tab-btn.active, .tab-btn:hover {
             background: #1e3a5f;
             color: white;
         }
-
-        .tab-btn:hover:not(.active) {
-            background: #334155;
-            color: #e2e8f0;
-        }
-
         .tab-content {
             display: none;
             animation: fadeIn 0.3s ease;
         }
-
-        .tab-content.active {
-            display: block;
-        }
-
+        .tab-content.active { display: block; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        /* Dashboard Widgets */
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
-
         .kpi-card {
             background: #1e293b;
             padding: 1rem;
             border-radius: 0.75rem;
             text-align: center;
         }
-
         .kpi-value {
             font-size: 1.8rem;
             font-weight: 700;
             color: #60a5fa;
         }
-
-        .kpi-label {
-            font-size: 0.7rem;
-            color: #94a3b8;
-            margin-top: 0.25rem;
-        }
-
-        .progress-item {
-            margin-bottom: 1rem;
-        }
-
+        .progress-item { margin-bottom: 1rem; }
         .progress-header {
             display: flex;
             justify-content: space-between;
@@ -279,49 +236,29 @@
             margin-bottom: 0.25rem;
             color: #cbd5e1;
         }
-
         .progress-bar-bg {
             background: #334155;
             border-radius: 0.5rem;
             height: 0.5rem;
             overflow: hidden;
         }
-
         .progress-fill {
             background: #60a5fa;
             height: 100%;
             border-radius: 0.5rem;
             transition: width 0.5s ease;
         }
-
         .schedule-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
         }
-
         .schedule-card {
             background: #1e293b;
             padding: 0.8rem;
             border-radius: 0.75rem;
             text-align: center;
         }
-
-        .schedule-date {
-            font-size: 0.7rem;
-            color: #94a3b8;
-        }
-
-        .schedule-status {
-            font-size: 0.7rem;
-            font-weight: 500;
-            margin-top: 0.25rem;
-        }
-
-        .status-completed { color: #10b981; }
-        .status-progress { color: #f59e0b; }
-        .status-planned { color: #64748b; }
-
         .risk-item {
             background: #1e293b;
             padding: 0.6rem;
@@ -331,42 +268,12 @@
             justify-content: space-between;
             align-items: center;
         }
-
-        .risk-badge {
-            background: #334155;
-            padding: 0.2rem 0.5rem;
-            border-radius: 1rem;
-            font-size: 0.7rem;
-            color: #cbd5e1;
-        }
-
-        .achievement-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .achievement-list li {
-            margin-bottom: 0.6rem;
-            padding-left: 1.2rem;
-            position: relative;
-            font-size: 0.9rem;
-            color: #334155;
-        }
-
-        .achievement-list li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: #1e3a5f;
-        }
-
         .contact-buttons {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
             margin-top: 1rem;
         }
-
         .btn {
             padding: 0.5rem 1.2rem;
             border-radius: 0.5rem;
@@ -377,29 +284,23 @@
             cursor: pointer;
             border: none;
             text-decoration: none;
+            background: #f1f5f9;
+            color: #1e3a5f;
+            border: 1px solid #cbd5e1;
         }
-
         .btn-primary {
             background: #1e3a5f;
             color: white;
+            border: none;
         }
-
         .btn-primary:hover {
             background: #0f2a4a;
             transform: translateY(-1px);
         }
-
-        .btn-outline {
-            border: 1px solid #cbd5e1;
-            background: white;
-            color: #1e3a5f;
-        }
-
         .btn-outline:hover {
-            border-color: #1e3a5f;
-            background: #f8fafc;
+            background: #e2e8f0;
+            transform: translateY(-1px);
         }
-
         footer {
             text-align: center;
             margin-top: 2rem;
@@ -408,12 +309,10 @@
             color: #94a3b8;
             font-size: 0.75rem;
         }
-
         @media (max-width: 700px) {
             .container { padding: 1rem; }
-            h1 { font-size: 1.6rem; }
-            .kpi-grid { grid-template-columns: 1fr; gap: 0.75rem; }
-            .schedule-grid { grid-template-columns: 1fr; }
+            .profile-header { flex-direction: column; text-align: center; gap: 1rem; }
+            .kpi-grid, .schedule-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -425,349 +324,130 @@
         </div>
 
         <div id="content"></div>
-        <footer id="footer">
-            <p>Lucas Portilho — Power BI Analyst</p>
-        </footer>
+        <footer id="footer"><p>Lucas Portilho — Power BI Analyst</p></footer>
     </div>
 
     <script>
-        // Conteúdo em Português
+        // CONTEÚDO
         const contentPT = {
-            name: "Lucas Portilho",
-            title: "Power BI Analyst | Project Analyst",
-            location: "📍Disponível para trabalho remoto ",
-            about: "Sobre",
-            aboutText: "Analista com foco em Power BI e gestão de projetos. Experiência comprovada na construção de dashboards interativos e relatórios gerenciais, com forte capacidade de trabalho autônomo e interação com stakeholders. Atuei no programa da Fragata MEKO A-200 (Marinha do Brasil / TKMS), desenvolvendo soluções analíticas para acompanhamento de KPIs de produção.",
-            experience: "Experiência",
-            projectName: "Programa Fragata MEKO A-200",
-            company: "Marinha do Brasil / TKMS",
-            period: "2022 — 2023",
-            projectDesc: "Responsável pelo desenvolvimento e manutenção de dashboards em Power BI para acompanhamento de indicadores de produção, status de cronograma e performance da construção naval. Interface direta com equipes técnicas alemãs (TKMS) e fornecedores internacionais, garantindo alinhamento contínuo com os objetivos do programa.",
-            specs: "Especificações da Fragata",
-            tools: "Power BI & Ferramentas",
-            skills: ["Power BI (Dashboards, DAX, ETL)", "Microsoft Project", "Primavera P6", "Jira", "Excel", "Pacote Office", "Inglês B2 (técnico)"],
-            dashboardTitle: "Dashboard Interativo (Power BI)",
-            dashboardDesc: "Clique nas abas abaixo para visualizar diferentes visões do dashboard desenvolvido para o programa.",
-            tab1: "📊 Visão Geral",
-            tab2: "📅 Cronograma",
-            tab3: "⚠️ Riscos & Performance",
-            metrics: [
-                { label: "Comprimento", value: "121m" },
-                { label: "Deslocamento", value: "3.950t" },
-                { label: "Velocidade", value: "29+ nós" },
-                { label: "Tripulação", value: "125+" }
-            ],
-            achievements: "Principais Entregas",
-            achievementsList: [
-                "Dashboards de acompanhamento de produção com atualização semanal",
-                "Integração de dados entre Primavera, Jira e Excel para relatórios gerenciais",
-                "Trabalho autônomo na entrega de soluções de reporting para a diretoria",
-                "Treinamento de 20+ usuários na utilização dos dashboards interativos",
-                "Interface direta com stakeholders internacionais (Alemanha)"
-            ],
-            goal: "Objetivo Profissional",
-            goalText: "Atuar como Power BI Analyst em projetos remotos para empresas globais, aplicando minha experiência em dashboards, análise de dados e gestão de projetos complexos para gerar valor e eficiência analítica.",
-            contact: "Contato",
-            emailText: "E-mail",
-            linkedinText: "LinkedIn",
-            githubText: "GitHub"
+            name: "Lucas Portilho", title: "Power BI Analyst | Project Analyst", location: "📍 Brasil — Disponível para trabalho remoto (Europa)",
+            about: "Sobre", aboutText: "Analista com foco em Power BI e gestão de projetos. Experiência comprovada na construção de dashboards interativos e relatórios gerenciais, com forte capacidade de trabalho autônomo e interação com stakeholders. Atuei no programa da Fragata MEKO A-200 (Marinha do Brasil / TKMS).",
+            experience: "Experiência", projectName: "Programa Fragata MEKO A-200", company: "Marinha do Brasil / TKMS", period: "2022 — Presente",
+            projectDesc: "Responsável pelo desenvolvimento e manutenção de dashboards em Power BI para acompanhamento de KPIs de produção e performance. Interface direta com equipes técnicas alemãs (TKMS).",
+            specs: "Especificações da Fragata", tools: "Power BI & Ferramentas",
+            skills: ["Power BI", "Microsoft Project", "Primavera P6", "Jira", "Excel", "Inglês B2"],
+            dashboardTitle: "Dashboard Interativo (Power BI)", dashboardDesc: "Clique nas abas:",
+            tab1: "📊 Visão Geral", tab2: "📅 Cronograma", tab3: "⚠️ Riscos",
+            metrics: [{ label: "Comprimento", value: "121m" },{ label: "Deslocamento", value: "3.950t" },{ label: "Velocidade", value: "29+ nós" },{ label: "Tripulação", value: "125+" }],
+            achievements: "Principais Entregas", achievementsList: ["Dashboards de produção semanais","Integração de dados (Primavera, Jira, Excel)","Trabalho autônomo para diretoria","Treinamento de 20+ usuários","Interface com stakeholders internacionais (Alemanha)"],
+            goal: "Objetivo Profissional", goalText: "Atuar como Power BI Analyst em projetos remotos para empresas europeias.",
+            contact: "Contato", emailText: "E-mail", linkedinText: "LinkedIn", githubText: "GitHub", cvText: "📄 Download CV (Europass)"
         };
-
-        // Conteúdo em Inglês
         const contentEN = {
-            name: "Lucas Portilho",
-            title: "Power BI Analyst | Project Analyst",
-            location: "📍 Available for remote work",
-            about: "About",
-            aboutText: "Project-focused analyst specializing in Power BI dashboards and reporting. Proven experience building interactive dashboards and management reports with strong autonomy and stakeholder interaction. Worked on the MEKO A-200 Frigate program (Brazilian Navy / TKMS), developing analytical solutions to track production KPIs.",
-            experience: "Experience",
-            projectName: "MEKO A-200 Frigate Program",
-            company: "Brazilian Navy / TKMS",
-            period: "2022 — 2023",
-            projectDesc: "Responsible for developing and maintaining Power BI dashboards to track production indicators, schedule status, and construction performance. Direct interface with German technical teams (TKMS) and international suppliers, ensuring continuous alignment with program objectives.",
-            specs: "Frigate Specifications",
-            tools: "Power BI & Tools",
-            skills: ["Power BI (Dashboards, DAX, ETL)", "Microsoft Project", "Primavera P6", "Jira", "Excel", "Office Suite", "English B2 (technical)"],
-            dashboardTitle: "Interactive Dashboard (Power BI)",
-            dashboardDesc: "Click the tabs below to view different perspectives of the dashboard developed for the program.",
-            tab1: "📊 Overview",
-            tab2: "📅 Schedule",
-            tab3: "⚠️ Risks & Performance",
-            metrics: [
-                { label: "Length", value: "121m" },
-                { label: "Displacement", value: "3,950t" },
-                { label: "Speed", value: "29+ knots" },
-                { label: "Crew", value: "125+" }
-            ],
-            achievements: "Key Deliverables",
-            achievementsList: [
-                "Production tracking dashboards with weekly updates",
-                "Data integration between Primavera, Jira, and Excel for management reports",
-                "Autonomous work delivering reporting solutions to program leadership",
-                "Trained 20+ users on interactive dashboards",
-                "Direct interface with international stakeholders (Germany)"
-            ],
-            goal: "Professional Goal",
-            goalText: "Work as a remote Power BI Analyst for Global companies, applying my experience in dashboards, data analysis, and complex project management to deliver value and analytical efficiency.",
-            contact: "Contact",
-            emailText: "Email",
-            linkedinText: "LinkedIn",
-            githubText: "GitHub"
+            name: "Lucas Portilho", title: "Power BI Analyst | Project Analyst", location: "📍 Brazil — Available for remote work (Europe)",
+            about: "About", aboutText: "Project analyst specializing in Power BI dashboards. Proven experience building interactive dashboards and management reports. Worked on the MEKO A-200 Frigate program (Brazilian Navy / TKMS).",
+            experience: "Experience", projectName: "MEKO A-200 Frigate Program", company: "Brazilian Navy / TKMS", period: "2022 — Present",
+            projectDesc: "Responsible for developing Power BI dashboards to track production KPIs. Direct interface with German technical teams (TKMS).",
+            specs: "Frigate Specifications", tools: "Power BI & Tools",
+            skills: ["Power BI", "Microsoft Project", "Primavera P6", "Jira", "Excel", "English B2"],
+            dashboardTitle: "Interactive Dashboard (Power BI)", dashboardDesc: "Click the tabs:",
+            tab1: "📊 Overview", tab2: "📅 Schedule", tab3: "⚠️ Risks",
+            metrics: [{ label: "Length", value: "121m" },{ label: "Displacement", value: "3,950t" },{ label: "Speed", value: "29+ knots" },{ label: "Crew", value: "125+" }],
+            achievements: "Key Deliverables", achievementsList: ["Weekly production dashboards","Data integration (Primavera, Jira, Excel)","Autonomous work for leadership","Trained 20+ users","Interface with international stakeholders (Germany)"],
+            goal: "Professional Goal", goalText: "Work as a remote Power BI Analyst for European companies.",
+            contact: "Contact", emailText: "Email", linkedinText: "LinkedIn", githubText: "GitHub", cvText: "📄 Download CV (Europass)"
         };
 
         let currentLang = 'pt';
 
         function initDashboard() {
-            // Abas do Dashboard
             const tabs = document.querySelectorAll('.tab-btn');
             const contents = document.querySelectorAll('.tab-content');
-            
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const tabId = tab.getAttribute('data-tab');
                     tabs.forEach(t => t.classList.remove('active'));
                     contents.forEach(c => c.classList.remove('active'));
                     tab.classList.add('active');
-                    const activeContent = document.getElementById(`tab-${tabId}`);
-                    if (activeContent) activeContent.classList.add('active');
+                    document.getElementById(`tab-${tabId}`).classList.add('active');
                 });
             });
         }
 
         function renderContent() {
             const c = currentLang === 'pt' ? contentPT : contentEN;
+            // Placeholder para a foto (você deve substituir pelo caminho real)
+            const profilePicHtml = `<img class="profile-pic" src="sua-foto.jpg" alt="Lucas Portilho" onerror="this.src='https://ui-avatars.com/api/?background=1e3a5f&color=fff&name=Lucas+Portilho'">`;
             
             const html = `
-                <header>
-                    <h1>${c.name}</h1>
-                    <div class="title">${c.title}</div>
-                    <div class="location">${c.location}</div>
-                </header>
-
-                <div class="card">
-                    <div class="card-title">📌 ${c.about}</div>
-                    <p style="margin-top: 0.8rem; color: #334155; font-size: 0.9rem;">${c.aboutText}</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">💼 ${c.experience}</div>
-                    <div style="margin-top: 0.8rem;">
-                        <div class="exp-header">
-                            <span class="exp-title">${c.projectName}</span>
-                            <span class="exp-period">${c.period}</span>
-                        </div>
-                        <div class="exp-company">${c.company}</div>
-                        <p class="exp-desc">${c.projectDesc}</p>
-                        
-                        <img class="frigate-img" src="https://upload.wikimedia.org/wikipedia/commons/6/61/Frigate_Tamandar%C3%A9_arrives_Rio_de_Janeiro_02.jpg" alt="Fragata Tamandaré MEKO A-200">
-                        <div class="img-caption">Fragata MEKO A-200 — Classe Tamandaré (Marinha do Brasil)</div>
-                        
-                        <h4 style="margin: 1rem 0 0.5rem; color: #1e3a5f; font-size: 0.85rem;">${c.specs}</h4>
-                        <div class="metrics-grid">
-                            ${c.metrics.map(m => `
-                                <div class="metric-card">
-                                    <div class="metric-number">${m.value}</div>
-                                    <div class="metric-label">${m.label}</div>
-                                </div>
-                            `).join('')}
-                        </div>
+                <div class="profile-header">
+                    ${profilePicHtml}
+                    <div class="profile-info">
+                        <h1>${c.name} <span class="badge">🇧🇷 PT</span> <span class="badge">🇺🇸 EN (B2)</span></h1>
+                        <div class="title"><i class="fas fa-chart-line"></i> ${c.title}</div>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> ${c.location}</div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-title">🛠️ ${c.tools}</div>
-                    <div class="skills-grid" style="margin-top: 0.8rem;">
-                        ${c.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
-                    </div>
-                </div>
+                <div class="card"><div class="card-title"><i class="fas fa-user"></i> ${c.about}</div><p style="margin-top:0.8rem;">${c.aboutText}</p></div>
 
                 <div class="card">
-                    <div class="card-title">📊 ${c.dashboardTitle}</div>
-                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">${c.dashboardDesc}</p>
-                    
+                    <div class="card-title"><i class="fas fa-briefcase"></i> ${c.experience}</div>
+                    <div class="exp-header"><span class="exp-title">${c.projectName}</span><span>${c.period}</span></div>
+                    <div class="exp-company"><i class="fas fa-building"></i> ${c.company}</div>
+                    <p>${c.projectDesc}</p>
+                    <img class="frigate-img" src="https://upload.wikimedia.org/wikipedia/commons/6/61/Frigate_Tamandar%C3%A9_arrives_Rio_de_Janeiro_02.jpg" alt="Fragata">
+                    <div class="img-caption">Fragata MEKO A-200 — Classe Tamandaré (Marinha do Brasil)</div>
+                    <h4 style="margin:1rem 0 0.5rem;">${c.specs}</h4>
+                    <div class="metrics-grid">${c.metrics.map(m => `<div class="metric-card"><div class="metric-number">${m.value}</div><div class="metric-label">${m.label}</div></div>`).join('')}</div>
+                </div>
+
+                <div class="card"><div class="card-title"><i class="fas fa-tools"></i> ${c.tools}</div><div class="skills-grid">${c.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}</div></div>
+
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-chart-pie"></i> ${c.dashboardTitle}</div>
+                    <p>${c.dashboardDesc}</p>
                     <div class="dashboard-container">
                         <div class="dashboard-tabs">
                             <button class="tab-btn active" data-tab="overview">${c.tab1}</button>
                             <button class="tab-btn" data-tab="schedule">${c.tab2}</button>
                             <button class="tab-btn" data-tab="performance">${c.tab3}</button>
                         </div>
-
-                        <!-- Aba 1: Visão Geral -->
                         <div id="tab-overview" class="tab-content active">
-                            <div class="kpi-grid">
-                                <div class="kpi-card">
-                                    <div class="kpi-value">87%</div>
-                                    <div class="kpi-label">Progresso Geral</div>
-                                </div>
-                                <div class="kpi-card">
-                                    <div class="kpi-value">42</div>
-                                    <div class="kpi-label">Atividades Concluídas</div>
-                                </div>
-                                <div class="kpi-card">
-                                    <div class="kpi-value">8</div>
-                                    <div class="kpi-label">Em Andamento</div>
-                                </div>
-                            </div>
-                            <div class="progress-item">
-                                <div class="progress-header"><span>Construção do Casco</span><span>92%</span></div>
-                                <div class="progress-bar-bg"><div class="progress-fill" style="width: 92%"></div></div>
-                            </div>
-                            <div class="progress-item">
-                                <div class="progress-header"><span>Sistema de Propulsão</span><span>78%</span></div>
-                                <div class="progress-bar-bg"><div class="progress-fill" style="width: 78%"></div></div>
-                            </div>
-                            <div class="progress-item">
-                                <div class="progress-header"><span>Sistema de Combate</span><span>63%</span></div>
-                                <div class="progress-bar-bg"><div class="progress-fill" style="width: 63%"></div></div>
-                            </div>
+                            <div class="kpi-grid"><div class="kpi-card"><div class="kpi-value">87%</div><div class="kpi-label">Progresso</div></div><div class="kpi-card"><div class="kpi-value">42</div><div class="kpi-label">Concluídas</div></div><div class="kpi-card"><div class="kpi-value">8</div><div class="kpi-label">Em andamento</div></div></div>
+                            <div class="progress-item"><div class="progress-header"><span>Casco</span><span>92%</span></div><div class="progress-bar-bg"><div class="progress-fill" style="width:92%"></div></div></div>
+                            <div class="progress-item"><div class="progress-header"><span>Propulsão</span><span>78%</span></div><div class="progress-bar-bg"><div class="progress-fill" style="width:78%"></div></div></div>
+                            <div class="progress-item"><div class="progress-header"><span>Combate</span><span>63%</span></div><div class="progress-bar-bg"><div class="progress-fill" style="width:63%"></div></div></div>
                         </div>
-
-                        <!-- Aba 2: Cronograma -->
                         <div id="tab-schedule" class="tab-content">
-                            <div class="schedule-grid">
-                                <div class="schedule-card">
-                                    <div class="kpi-value">Q1 2024</div>
-                                    <div class="schedule-date">Início da Construção</div>
-                                    <div class="schedule-status status-completed">✅ Concluído</div>
-                                </div>
-                                <div class="schedule-card">
-                                    <div class="kpi-value">Q3 2024</div>
-                                    <div class="schedule-date">Lançamento ao Mar</div>
-                                    <div class="schedule-status status-progress">🔄 Em andamento</div>
-                                </div>
-                                <div class="schedule-card">
-                                    <div class="kpi-value">Q1 2025</div>
-                                    <div class="schedule-date">Testes de Mar</div>
-                                    <div class="schedule-status status-planned">⏳ Planejado</div>
-                                </div>
-                                <div class="schedule-card">
-                                    <div class="kpi-value">Q3 2025</div>
-                                    <div class="schedule-date">Entrega Oficial</div>
-                                    <div class="schedule-status status-planned">⏳ Planejado</div>
-                                </div>
-                            </div>
-                            <div class="progress-item" style="margin-top: 1rem;">
-                                <div class="progress-header"><span>Atraso em relação ao cronograma base</span><span style="color:#10b981;">-2%</span></div>
-                                <div class="progress-bar-bg"><div class="progress-fill" style="width: 2%; background: #10b981;"></div></div>
-                                <div style="font-size: 0.7rem; color:#94a3b8; margin-top: 0.25rem;">Projeto dentro da janela de tolerância (±5%)</div>
-                            </div>
+                            <div class="schedule-grid"><div class="schedule-card"><div class="kpi-value">Q1 2024</div><div>Início</div><div style="color:#10b981;">✅ Concluído</div></div><div class="schedule-card"><div class="kpi-value">Q3 2024</div><div>Lançamento</div><div style="color:#f59e0b;">🔄 Em andamento</div></div><div class="schedule-card"><div class="kpi-value">Q1 2025</div><div>Testes</div><div style="color:#64748b;">⏳ Planejado</div></div><div class="schedule-card"><div class="kpi-value">Q3 2025</div><div>Entrega</div><div style="color:#64748b;">⏳ Planejado</div></div></div>
                         </div>
-
-                        <!-- Aba 3: Riscos & Performance -->
                         <div id="tab-performance" class="tab-content">
-                            <div class="kpi-grid">
-                                <div class="kpi-card">
-                                    <div class="kpi-value">94%</div>
-                                    <div class="kpi-label">Eficiência da Equipe</div>
-                                </div>
-                                <div class="kpi-card">
-                                    <div class="kpi-value">98%</div>
-                                    <div class="kpi-label">Conformidade Técnica</div>
-                                </div>
-                                <div class="kpi-card">
-                                    <div class="kpi-value">€0M</div>
-                                    <div class="kpi-label">Variação de Custo</div>
-                                </div>
-                            </div>
-                            <div class="progress-item">
-                                <div class="progress-header"><span>Custo Orçado vs Realizado</span><span>103%</span></div>
-                                <div class="progress-bar-bg"><div class="progress-fill" style="width: 103%; background: #f59e0b;"></div></div>
-                            </div>
-                            <div class="risk-item">
-                                <span>Fornecedor de sensores</span>
-                                <span class="risk-badge">🟡 Médio</span>
-                            </div>
-                            <div class="risk-item">
-                                <span>Disponibilidade de doca seca</span>
-                                <span class="risk-badge">🟢 Baixo</span>
-                            </div>
-                            <div class="risk-item">
-                                <span>Certificação do sistema de combate</span>
-                                <span class="risk-badge">🟡 Médio</span>
-                            </div>
+                            <div class="kpi-grid"><div class="kpi-card"><div class="kpi-value">94%</div><div>Eficiência</div></div><div class="kpi-card"><div class="kpi-value">98%</div><div>Conformidade</div></div><div class="kpi-card"><div class="kpi-value">€0M</div><div>Variação</div></div></div>
+                            <div class="risk-item"><span>Fornecedor de sensores</span><span style="background:#334155; padding:2px 8px; border-radius:1rem;">🟡 Médio</span></div>
+                            <div class="risk-item"><span>Disponibilidade de doca</span><span style="background:#334155; padding:2px 8px; border-radius:1rem;">🟢 Baixo</span></div>
                         </div>
                     </div>
-                    <div style="margin-top: 0.8rem; font-size: 0.7rem; color: #94a3b8; text-align: center;">
-                        ⚡ Dados ilustrativos baseados em indicadores reais do programa
-                    </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-title">🏆 ${c.achievements}</div>
-                    <ul class="achievement-list" style="margin-top: 0.8rem;">
-                        ${c.achievementsList.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">🎯 ${c.goal}</div>
-                    <p style="margin-top: 0.8rem; color: #334155; font-size: 0.9rem;">${c.goalText}</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">📫 ${c.contact}</div>
-                    <div class="contact-buttons">
-                        <button class="btn btn-primary" id="emailBtn">📧 ${c.emailText}</button>
-                        <button class="btn btn-outline" id="linkedinBtn">💼 ${c.linkedinText}</button>
-                        <button class="btn btn-outline" id="githubBtn">🐙 ${c.githubText}</button>
-                    </div>
-                </div>
+                <div class="card"><div class="card-title"><i class="fas fa-trophy"></i> ${c.achievements}</div><ul class="achievement-list">${c.achievementsList.map(item => `<li>${item}</li>`).join('')}</ul></div>
+                <div class="card"><div class="card-title"><i class="fas fa-certificate"></i> Idiomas & Certificações</div><div class="skills-grid"><span class="skill-tag">🇧🇷 Português (Nativo)</span><span class="skill-tag">🇺🇸 Inglês (B2 - Técnico)</span><span class="skill-tag">📊 Power BI (Microsoft - em andamento)</span></div></div>
+                <div class="card"><div class="card-title"><i class="fas fa-download"></i> ${c.cvText}</div><button id="downloadCvBtn" class="btn btn-primary"><i class="fas fa-file-pdf"></i> ${c.cvText}</button><p style="font-size:0.7rem; margin-top:0.5rem;">*Versão ilustrativa - substitua pelo seu CV</p></div>
+                <div class="card"><div class="card-title"><i class="fas fa-envelope"></i> ${c.contact}</div><div class="contact-buttons"><a href="mailto:lucascoxev2@outlook.com" class="btn btn-primary"><i class="fas fa-envelope"></i> ${c.emailText}</a><a href="https://www.linkedin.com/in/lucas-portilho/" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> ${c.linkedinText}</a><a href="https://github.com/LucasCPortilho" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> ${c.githubText}</a></div></div>
             `;
-            
             document.getElementById('content').innerHTML = html;
             document.getElementById('footer').innerHTML = `<p>Lucas Portilho — ${c.title}</p>`;
-
-            // CORREÇÃO DO E-MAIL - Usando link mailto diretamente
-            const emailBtn = document.getElementById('emailBtn');
-            if (emailBtn) {
-                // Método 1: substituir o botão por um link <a>
-                const emailLink = document.createElement('a');
-                emailLink.href = 'mailto:lucascoxev2@outlook.com?subject=Power%20BI%20Analyst%20Opportunity%20-%20Lucas%20Portilho';
-                emailLink.className = 'btn btn-primary';
-                emailLink.style.textDecoration = 'none';
-                emailLink.innerHTML = emailBtn.innerHTML;
-                emailBtn.parentNode.replaceChild(emailLink, emailBtn);
+            
+            // Download CV ilustrativo
+            const downloadBtn = document.getElementById('downloadCvBtn');
+            if(downloadBtn) {
+                downloadBtn.onclick = () => alert('Adicione seu currículo PDF no lugar deste link. Gero um modelo para você se quiser.');
             }
-
-            // LinkedIn
-            const linkedinBtn = document.getElementById('linkedinBtn');
-            if (linkedinBtn) {
-                const linkedinLink = document.createElement('a');
-                linkedinLink.href = 'https://www.linkedin.com/in/lucas-portilho/';
-                linkedinLink.target = '_blank';
-                linkedinLink.className = 'btn btn-outline';
-                linkedinLink.style.textDecoration = 'none';
-                linkedinLink.innerHTML = linkedinBtn.innerHTML;
-                linkedinBtn.parentNode.replaceChild(linkedinLink, linkedinBtn);
-            }
-
-            // GitHub
-            const githubBtn = document.getElementById('githubBtn');
-            if (githubBtn) {
-                const githubLink = document.createElement('a');
-                githubLink.href = 'https://github.com/LucasCPortilho';
-                githubLink.target = '_blank';
-                githubLink.className = 'btn btn-outline';
-                githubLink.style.textDecoration = 'none';
-                githubLink.innerHTML = githubBtn.innerHTML;
-                githubBtn.parentNode.replaceChild(githubLink, githubBtn);
-            }
-
             initDashboard();
         }
 
-        document.getElementById('btnPT').onclick = () => {
-            currentLang = 'pt';
-            document.getElementById('btnPT').classList.add('active');
-            document.getElementById('btnEN').classList.remove('active');
-            renderContent();
-        };
-        document.getElementById('btnEN').onclick = () => {
-            currentLang = 'en';
-            document.getElementById('btnEN').classList.add('active');
-            document.getElementById('btnPT').classList.remove('active');
-            renderContent();
-        };
+        document.getElementById('btnPT').onclick = () => { currentLang = 'pt'; document.getElementById('btnPT').classList.add('active'); document.getElementById('btnEN').classList.remove('active'); renderContent(); };
+        document.getElementById('btnEN').onclick = () => { currentLang = 'en'; document.getElementById('btnEN').classList.add('active'); document.getElementById('btnPT').classList.remove('active'); renderContent(); };
         renderContent();
     </script>
 </body>
