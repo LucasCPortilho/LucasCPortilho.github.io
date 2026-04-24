@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Portilho | Portfólio</title>
+    <title>Lucas Portilho | Project Analyst | Power BI | Defense</title>
     <style>
         * {
             margin: 0;
@@ -21,7 +21,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -49,11 +49,11 @@
 
         header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             background: linear-gradient(135deg, #60a5fa, #c084fc);
             background-clip: text;
             -webkit-background-clip: text;
@@ -61,12 +61,20 @@
             margin-bottom: 0.5rem;
         }
 
-        .tagline {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            border-bottom: 1px solid #334155;
+        .badge {
             display: inline-block;
-            padding-bottom: 0.5rem;
+            background: #1e293b;
+            padding: 0.2rem 0.8rem;
+            border-radius: 1rem;
+            font-size: 0.7rem;
+            margin: 0.2rem;
+            border: 1px solid #334155;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-top: 0.5rem;
         }
 
         .section {
@@ -79,60 +87,93 @@
         }
 
         .section:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             border-color: #60a5fa;
         }
 
         h2 {
             color: #60a5fa;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            border-left: 3px solid #c084fc;
+            padding-left: 0.8rem;
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .project-card {
-            background: #0f172a;
-            padding: 1rem;
-            border-radius: 0.75rem;
-            border-left: 4px solid #60a5fa;
-        }
-
-        .project-card h3 {
-            color: #c084fc;
-            margin-bottom: 0.5rem;
-        }
-
-        .tech-badge {
-            display: inline-block;
-            background: #334155;
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.75rem;
-            margin-right: 0.5rem;
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
             margin-top: 0.5rem;
         }
 
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill {
+        .skill-card {
             background: #0f172a;
             padding: 0.5rem 1rem;
             border-radius: 2rem;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             border: 1px solid #334155;
+        }
+
+        .project-highlight {
+            background: linear-gradient(135deg, #1e1b4b, #0f172a);
+            border-left: 4px solid #c084fc;
+            padding: 1.2rem;
+            border-radius: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .frigate-img {
+            width: 100%;
+            border-radius: 0.8rem;
+            margin: 1rem 0;
+            border: 1px solid #334155;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+
+        .metric {
+            background: #0f172a;
+            padding: 0.8rem;
+            border-radius: 0.8rem;
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #c084fc;
+        }
+
+        .metric-label {
+            font-size: 0.7rem;
+            color: #94a3b8;
+        }
+
+        .btn {
+            background: #60a5fa;
+            color: #0f172a;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.2s;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-size: 0.8rem;
+        }
+
+        .btn:hover {
+            background: #c084fc;
+            transform: scale(1.02);
         }
 
         .contact-links {
@@ -142,89 +183,13 @@
             margin-top: 1rem;
         }
 
-        .btn {
-            background: #60a5fa;
-            color: #0f172a;
-            padding: 0.6rem 1.2rem;
-            border-radius: 2rem;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.2s;
-            display: inline-block;
-            cursor: pointer;
-            border: none;
-            font-size: 0.9rem;
-        }
-
-        .btn:hover {
-            background: #c084fc;
-            transform: scale(1.02);
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: #1e293b;
-            border-radius: 1rem;
-            max-width: 500px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 1.5rem;
-            border: 1px solid #60a5fa;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .close-modal {
-            background: none;
-            border: none;
-            color: #e2e8f0;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .imc-input {
-            width: 100%;
-            padding: 0.5rem;
-            margin: 0.5rem 0;
-            border-radius: 0.5rem;
-            border: 1px solid #334155;
-            background: #0f172a;
-            color: #e2e8f0;
-        }
-
-        .imc-result {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: #0f172a;
-            border-radius: 0.5rem;
-            text-align: center;
-        }
-
         footer {
             text-align: center;
             margin-top: 2rem;
             padding-top: 1rem;
             border-top: 1px solid #334155;
             color: #64748b;
-            font-size: 0.875rem;
+            font-size: 0.75rem;
         }
 
         @media (max-width: 600px) {
@@ -232,7 +197,7 @@
                 padding: 1rem;
             }
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -244,163 +209,148 @@
             <button class="lang-btn" id="btnEN">🇺🇸 EN</button>
         </div>
 
-        <div id="content">
-            <!-- O conteúdo será inserido via JavaScript -->
-        </div>
+        <div id="content"></div>
 
         <footer id="footer">
-            <p>Disponível para oportunidades remotas internacionais 🌍</p>
-            <p style="margin-top: 0.5rem;">📍 Trabalhando para receber em Euros</p>
+            <p>🌍 Disponível para oportunidades internacionais remotas</p>
+            <p>📍 Trabalhando para receber em Euros</p>
         </footer>
     </div>
 
-    <!-- Modal da Calculadora IMC -->
-    <div id="imcModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalTitle">📊 Calculadora de IMC</h3>
-                <button class="close-modal" onclick="closeIMCModal()">×</button>
-            </div>
-            <div>
-                <input type="number" id="modalHeight" class="imc-input" placeholder="Altura (m) - Ex: 1.75">
-                <input type="number" id="modalWeight" class="imc-input" placeholder="Peso (kg) - Ex: 70">
-                <button class="btn" style="width:100%; margin-top: 0.5rem;" onclick="calculateModalIMC()">Calcular</button>
-                <div id="modalIMCResult" class="imc-result" style="display: none;"></div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Conteúdo em Português
         const contentPT = {
-            name: "Olá, eu sou Lucas Portilho",
-            tagline: "Desenvolvedor em Formação | Lógica e Soluções",
-            about: "📌 Sobre mim",
-            aboutText: "Sou apaixonado por tecnologia e desenvolvimento de software. Tenho conhecimento teórico sólido em lógica de programação, estruturas de dados e algoritmos. Estou agora transformando esse conhecimento em projetos práticos para resolver problemas reais. Busco minha primeira oportunidade remota internacional.",
-            knowledge: "📚 Conhecimentos Teóricos",
-            skills: ["Lógica de Programação", "Estruturas de Dados", "Algoritmos", "Orientação a Objetos", "Banco de Dados (Teoria)", "HTML & CSS", "JavaScript (Fundamentos)", "Python (Lógica)"],
-            projects: "🚧 Projetos",
-            projectsSub: "↓ Clique nos botões para ver os projetos funcionando ↓",
-            projectsList: [
-                { name: "📊 Calculadora de IMC", desc: "Ferramenta interativa para calcular IMC com histórico salvo.", techs: ["HTML", "CSS", "JavaScript", "LocalStorage"], action: "openIMCModal()" },
-                { name: "📝 Sistema de Tarefas", desc: "Aplicação web para gerenciar tarefas diárias (em breve).", techs: ["JavaScript", "LocalStorage"], action: "alert('Em breve!')" },
-                { name: "🌤️ API do Clima", desc: "Consumo de API pública para exibir clima em tempo real (em breve).", techs: ["Fetch API", "JSON"], action: "alert('Em breve!')" }
+            name: "Lucas Portilho",
+            title: "Analista de Projetos | Power BI | Defesa",
+            location: "📍 Brasil | 🌍 Disponível para trabalho remoto internacional",
+            about: "Sobre mim",
+            aboutText: "Analista de Projetos com experiência em projetos de alto nível no setor de defesa. Especialista em Power BI, cronogramas e gestão de projetos complexos. Atuei diretamente no programa de construção da Fragata MEKO A-200 para a Marinha do Brasil, gerenciando dashboards, indicadores de performance e integração de equipes multidisciplinares.",
+            
+            experience: "⚓ Experiência de Destaque",
+            projectName: "Programa Fragata MEKO A-200 - Marinha do Brasil",
+            projectDesc: "Atuação como Analista de Projetos no mais significativo programa de defesa naval do Brasil. Responsável pelo desenvolvimento e manutenção de dashboards em Power BI para acompanhamento de KPIs de produção, cronogramas e custos. Integração com equipes técnicas da TKMS (Alemanha) e fornecedores internacionais.",
+            specs: "Especificações Técnicas da Fragata",
+            
+            tools: "🛠️ Ferramentas e Tecnologias",
+            skillsDetails: ["Power BI (Dashboards, DAX, ETL)", "Microsoft Project (Cronogramas)", "Primavera P6 (Planejamento)", "Jira (Gestão de Tarefas)", "Excel Avançado (Power Query)", "Pacote Office 365", "Gestão de KPIs e OKRs", "Metodologias Ágeis (Scrum/Kanban)"],
+            
+            metricsTitle: "Métricas do Projeto",
+            metrics: [
+                { number: "121m", label: "Comprimento da Fragata" },
+                { number: "3.950t", label: "Deslocamento" },
+                { number: "29+ nós", label: "Velocidade Máxima" },
+                { number: "125+", label: "Tripulação" }
             ],
+            
+            achievements: "🏆 Principais Realizações",
+            achievementsList: [
+                "Criação de dashboard executivo em Power BI com 15+ KPIs para diretoria do programa",
+                "Redução de 30% no tempo de consolidação de relatórios semanais",
+                "Treinamento de 20+ usuários no uso de dashboards interativos",
+                "Integração de dados de 3 sistemas diferentes (Primavera, Jira, Excel)",
+                "Participação em reuniões com stakeholders internacionais (Alemanha)"
+            ],
+            
             goal: "🎯 Objetivo Profissional",
-            goalText: "Buscar minha primeira oportunidade como desenvolvedor remoto para empresas europeias. Tenho disponibilidade para aprender rápido, me adaptar a diferentes fusos e contribuir com soluções de qualidade. Inglês técnico em desenvolvimento para comunicação diária.",
+            goalText: "Atuar como Analista de Projetos / Power BI Specialist remoto para empresas europeias, aplicando minha experiência em projetos complexos e gestão de dados para gerar valor e eficiência.",
+            
             contact: "📫 Contato",
-            footer: "Disponível para oportunidades remotas internacionais 🌍",
-            footerSub: "📍 Trabalhando para receber em Euros"
+            emailBtn: "📧 Enviar E-mail",
+            linkedinBtn: "💼 LinkedIn",
+            githubBtn: "🐙 GitHub"
         };
 
-        // Conteúdo em Inglês
         const contentEN = {
-            name: "Hello, I'm Lucas Portilho",
-            tagline: "Developer in Training | Logic & Solutions",
-            about: "📌 About Me",
-            aboutText: "I'm passionate about technology and software development. I have solid theoretical knowledge in programming logic, data structures, and algorithms. I'm now turning this knowledge into practical projects to solve real problems. I'm looking for my first international remote opportunity.",
-            knowledge: "📚 Theoretical Knowledge",
-            skills: ["Programming Logic", "Data Structures", "Algorithms", "Object Orientation", "Database (Theory)", "HTML & CSS", "JavaScript (Fundamentals)", "Python (Logic)"],
-            projects: "🚧 Projects",
-            projectsSub: "↓ Click the buttons to see working projects ↓",
-            projectsList: [
-                { name: "📊 BMI Calculator", desc: "Interactive tool to calculate BMI with saved history.", techs: ["HTML", "CSS", "JavaScript", "LocalStorage"], action: "openIMCModal()" },
-                { name: "📝 Task System", desc: "Web app to manage daily tasks (coming soon).", techs: ["JavaScript", "LocalStorage"], action: "alert('Coming soon!')" },
-                { name: "🌤️ Weather API", desc: "Real-time weather using public API (coming soon).", techs: ["Fetch API", "JSON"], action: "alert('Coming soon!')" }
+            name: "Lucas Portilho",
+            title: "Project Analyst | Power BI | Defense Sector",
+            location: "📍 Brazil | 🌍 Available for international remote work",
+            about: "About Me",
+            aboutText: "Project Analyst with experience in high-level defense sector projects. Power BI specialist focused on dashboards, schedules, and complex project management. Worked directly on the MEKO A-200 Frigate construction program for the Brazilian Navy, managing dashboards, performance indicators, and multidisciplinary team integration.",
+            
+            experience: "⚓ Featured Experience",
+            projectName: "MEKO A-200 Frigate Program - Brazilian Navy",
+            projectDesc: "Project Analyst role in Brazil's most significant naval defense program. Responsible for developing and maintaining Power BI dashboards to track production KPIs, schedules, and costs. Integration with TKMS (Germany) technical teams and international suppliers.",
+            specs: "Frigate Technical Specifications",
+            
+            tools: "🛠️ Tools & Technologies",
+            skillsDetails: ["Power BI (Dashboards, DAX, ETL)", "Microsoft Project (Schedules)", "Primavera P6 (Planning)", "Jira (Task Management)", "Advanced Excel (Power Query)", "Office 365 Suite", "KPI & OKR Management", "Agile Methodologies (Scrum/Kanban)"],
+            
+            metricsTitle: "Project Metrics",
+            metrics: [
+                { number: "121m", label: "Frigate Length" },
+                { number: "3,950t", label: "Displacement" },
+                { number: "29+ knots", label: "Max Speed" },
+                { number: "125+", label: "Crew" }
             ],
+            
+            achievements: "🏆 Key Achievements",
+            achievementsList: [
+                "Created executive Power BI dashboard with 15+ KPIs for program directorate",
+                "Reduced weekly report consolidation time by 30%",
+                "Trained 20+ users on interactive dashboards",
+                "Integrated data from 3 different systems (Primavera, Jira, Excel)",
+                "Participated in meetings with international stakeholders (Germany)"
+            ],
+            
             goal: "🎯 Professional Goal",
-            goalText: "Seeking my first opportunity as a remote developer for European companies. I'm available to learn fast, adapt to different time zones, and deliver quality solutions. Technical English in development for daily communication.",
+            goalText: "Work as a remote Project Analyst / Power BI Specialist for European companies, applying my experience in complex projects and data management to generate value and efficiency.",
+            
             contact: "📫 Contact",
-            footer: "Available for international remote opportunities 🌍",
-            footerSub: "📍 Working to earn in Euros"
+            emailBtn: "📧 Send Email",
+            linkedinBtn: "💼 LinkedIn",
+            githubBtn: "🐙 GitHub"
         };
 
         let currentLang = 'pt';
 
-        function openIMCModal() {
-            document.getElementById('imcModal').style.display = 'flex';
-            document.getElementById('modalHeight').value = '';
-            document.getElementById('modalWeight').value = '';
-            document.getElementById('modalIMCResult').style.display = 'none';
-        }
-
-        function closeIMCModal() {
-            document.getElementById('imcModal').style.display = 'none';
-        }
-
-        function calculateModalIMC() {
-            const height = parseFloat(document.getElementById('modalHeight').value);
-            const weight = parseFloat(document.getElementById('modalWeight').value);
-
-            if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
-                alert(currentLang === 'pt' ? 'Insira valores válidos!' : 'Enter valid values!');
-                return;
-            }
-
-            const imc = weight / (height * height);
-            let classification = '';
-            
-            if (currentLang === 'pt') {
-                if (imc < 18.5) classification = 'Abaixo do peso';
-                else if (imc < 25) classification = 'Peso normal';
-                else if (imc < 30) classification = 'Sobrepeso';
-                else if (imc < 35) classification = 'Obesidade grau I';
-                else if (imc < 40) classification = 'Obesidade grau II';
-                else classification = 'Obesidade grau III';
-            } else {
-                if (imc < 18.5) classification = 'Underweight';
-                else if (imc < 25) classification = 'Normal weight';
-                else if (imc < 30) classification = 'Overweight';
-                else if (imc < 35) classification = 'Obesity class I';
-                else if (imc < 40) classification = 'Obesity class II';
-                else classification = 'Obesity class III';
-            }
-
-            const resultDiv = document.getElementById('modalIMCResult');
-            resultDiv.innerHTML = `
-                <strong>IMC: ${imc.toFixed(2)}</strong><br>
-                <span style="color: #60a5fa;">${classification}</span>
-            `;
-            resultDiv.style.display = 'block';
-        }
-
         function renderContent() {
             const content = currentLang === 'pt' ? contentPT : contentEN;
+            
             const html = `
                 <header>
                     <h1>${content.name}</h1>
-                    <div class="tagline">${content.tagline}</div>
+                    <div class="tagline">${content.title}</div>
+                    <div class="tagline" style="font-size: 0.8rem;">${content.location}</div>
                 </header>
 
                 <div class="section">
-                    <h2>${content.about}</h2>
+                    <h2>📌 ${content.about}</h2>
                     <p>${content.aboutText}</p>
                 </div>
 
                 <div class="section">
-                    <h2>${content.knowledge}</h2>
-                    <div class="skills-list">
-                        ${content.skills.map(skill => `<span class="skill">${skill}</span>`).join('')}
+                    <h2>${content.experience}</h2>
+                    <div class="project-highlight">
+                        <h3 style="color: #c084fc; margin-bottom: 0.5rem;">🚢 ${content.projectName}</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">${content.projectDesc}</p>
+                        <h4 style="color: #60a5fa; font-size: 0.9rem; margin: 0.8rem 0 0.5rem;">${content.specs}</h4>
+                        <div class="metrics">
+                            ${content.metrics.map(m => `
+                                <div class="metric">
+                                    <div class="metric-number">${m.number}</div>
+                                    <div class="metric-label">${m.label}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div style="margin-top: 0.8rem;">
+                            <span class="badge">⚓ Marinha do Brasil</span>
+                            <span class="badge">🇩🇪 Cooperação TKMS</span>
+                            <span class="badge">🏭 Construção Naval</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h2>${content.projects}</h2>
-                    <p style="margin-bottom: 1rem; color: #94a3b8;">${content.projectsSub}</p>
-                    <div class="projects-grid">
-                        ${content.projectsList.map(proj => `
-                            <div class="project-card">
-                                <h3>${proj.name}</h3>
-                                <p>${proj.desc}</p>
-                                <div>
-                                    ${proj.techs.map(tech => `<span class="tech-badge">${tech}</span>`).join('')}
-                                </div>
-                                <div style="margin-top: 0.75rem;">
-                                    <button class="btn" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;" onclick="${proj.action}">🔗 ${currentLang === 'pt' ? 'Abrir' : 'Open'}</button>
-                                </div>
-                            </div>
-                        `).join('')}
+                    <h2>${content.tools}</h2>
+                    <div class="skills-grid">
+                        ${content.skillsDetails.map(skill => `<span class="skill-card">${skill}</span>`).join('')}
                     </div>
+                </div>
+
+                <div class="section">
+                    <h2>${content.achievements}</h2>
+                    <ul style="margin-left: 1.2rem; color: #cbd5e1;">
+                        ${content.achievementsList.map(item => `<li style="margin-bottom: 0.5rem;">${item}</li>`).join('')}
+                    </ul>
                 </div>
 
                 <div class="section">
@@ -411,61 +361,51 @@
                 <div class="section">
                     <h2>${content.contact}</h2>
                     <div class="contact-links">
-                        <a href="#" class="btn" id="emailBtn">📧 ${currentLang === 'pt' ? 'Enviar E-mail' : 'Send Email'}</a>
-                        <a href="#" class="btn" id="linkedinBtn">💼 ${currentLang === 'pt' ? 'LinkedIn' : 'LinkedIn'}</a>
-                        <a href="#" class="btn" id="githubBtn">🐙 GitHub</a>
+                        <a href="#" class="btn" id="emailBtn">${content.emailBtn}</a>
+                        <a href="#" class="btn" id="linkedinBtn">${content.linkedinBtn}</a>
+                        <a href="#" class="btn" id="githubBtn">${content.githubBtn}</a>
                     </div>
                 </div>
             `;
+            
             document.getElementById('content').innerHTML = html;
-
+            
             document.getElementById('footer').innerHTML = `
-                <p>${content.footer}</p>
-                <p style="margin-top: 0.5rem;">${content.footerSub}</p>
+                <p>🌍 ${currentLang === 'pt' ? 'Disponível para oportunidades internacionais remotas' : 'Available for international remote opportunities'}</p>
+                <p>📍 ${currentLang === 'pt' ? 'Trabalhando para receber em Euros' : 'Working to earn in Euros'}</p>
             `;
 
-            // E-MAIL: lucascoxev2@outlook.com
-            document.getElementById('emailBtn').addEventListener('click', function(e) {
+            document.getElementById('emailBtn').addEventListener('click', (e) => {
                 e.preventDefault();
-                window.location.href = 'mailto:lucascoxev2@outlook.com?subject=' + encodeURIComponent(currentLang === 'pt' ? 'Vi seu portfólio e gostaria de conversar' : 'I saw your portfolio and would like to talk');
+                window.location.href = 'mailto:lucascoxev2@outlook.com?subject=' + encodeURIComponent(currentLang === 'pt' ? 'Vi seu portfólio - Oportunidade para Analista de Projetos' : 'I saw your portfolio - Project Analyst Opportunity');
             });
 
-            // LINKEDIN: https://www.linkedin.com/in/lucas-portilho/
-            document.getElementById('linkedinBtn').addEventListener('click', function(e) {
+            document.getElementById('linkedinBtn').addEventListener('click', (e) => {
                 e.preventDefault();
                 window.open('https://www.linkedin.com/in/lucas-portilho/', '_blank');
             });
 
-            // GITHUB
-            document.getElementById('githubBtn').addEventListener('click', function(e) {
+            document.getElementById('githubBtn').addEventListener('click', (e) => {
                 e.preventDefault();
                 window.open('https://github.com/LucasCPortilho', '_blank');
             });
         }
 
-        document.getElementById('btnPT').addEventListener('click', () => {
+        document.getElementById('btnPT').onclick = () => {
             currentLang = 'pt';
             document.getElementById('btnPT').classList.add('active');
             document.getElementById('btnEN').classList.remove('active');
             renderContent();
-        });
+        };
 
-        document.getElementById('btnEN').addEventListener('click', () => {
+        document.getElementById('btnEN').onclick = () => {
             currentLang = 'en';
             document.getElementById('btnEN').classList.add('active');
             document.getElementById('btnPT').classList.remove('active');
             renderContent();
-        });
+        };
 
         renderContent();
-
-        // Fechar modal clicando fora
-        window.onclick = function(event) {
-            const modal = document.getElementById('imcModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        }
     </script>
 </body>
 </html>
