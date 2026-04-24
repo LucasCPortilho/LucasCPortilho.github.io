@@ -25,7 +25,6 @@
             padding: 2rem;
         }
 
-        /* Language Switcher */
         .lang-switch {
             text-align: right;
             margin-bottom: 2rem;
@@ -52,11 +51,6 @@
             color: white;
         }
 
-        .flag-icon {
-            font-size: 1.1rem;
-        }
-
-        /* Hero Section */
         .hero {
             display: flex;
             align-items: center;
@@ -106,8 +100,6 @@
             font-size: 0.75rem;
             font-weight: 500;
         }
-
-        /* CTA Buttons */
         .cta-group {
             display: flex;
             gap: 1rem;
@@ -140,24 +132,13 @@
             border: 1px solid #cbd5e1;
             color: #1e3a5f;
         }
-        .btn-outline:hover {
-            border-color: #1e3a5f;
-            background: #f8fafc;
-            transform: translateY(-2px);
-        }
-
-        /* Cards */
         .card {
             background: white;
             border-radius: 1.25rem;
             padding: 1.8rem;
             margin-bottom: 1.8rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
             border: 1px solid #e2e8f0;
-            transition: all 0.2s;
-        }
-        .card:hover {
-            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.08);
         }
         .card-title {
             font-size: 1.3rem;
@@ -168,12 +149,6 @@
             align-items: center;
             gap: 0.5rem;
         }
-        .card-title i {
-            color: #1e3a5f;
-            font-size: 1.4rem;
-        }
-
-        /* Skills com ícones oficiais */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
@@ -190,17 +165,7 @@
             align-items: center;
             gap: 0.5rem;
             border: 1px solid #e2e8f0;
-            transition: all 0.2s;
         }
-        .skill-card:hover {
-            background: #eef2ff;
-            transform: translateY(-2px);
-        }
-        .skill-icon {
-            font-size: 1.1rem;
-        }
-
-        /* Experience */
         .exp-header {
             display: flex;
             justify-content: space-between;
@@ -242,19 +207,20 @@
             color: #1e3a5f;
         }
 
-        /* Dashboard Moderno */
+        /* DASHBOARD - CORRIGIDO (CONTRASTE ALTO) */
         .dashboard-container {
             background: #0f172a;
             border-radius: 1rem;
-            padding: 1.2rem;
+            padding: 1.5rem;
             margin-top: 0.5rem;
         }
         .dashboard-tabs {
             display: flex;
             gap: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             border-bottom: 1px solid #334155;
             padding-bottom: 0.5rem;
+            flex-wrap: wrap;
         }
         .tab-btn {
             background: transparent;
@@ -280,35 +246,47 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* KPI Cards - texto BRANCO */
         .kpi-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
         .kpi-card {
             background: #1e293b;
             padding: 1rem;
             border-radius: 0.75rem;
             text-align: center;
+            border-left: 3px solid #60a5fa;
         }
         .kpi-value {
             font-size: 1.6rem;
             font-weight: 700;
             color: #60a5fa;
         }
-        .progress-item { margin-bottom: 1rem; }
+        .kpi-label {
+            font-size: 0.7rem;
+            color: #cbd5e1;  /* COR CLARA PARA CONTRASTE */
+            margin-top: 0.25rem;
+        }
+
+        /* Progresso - texto BRANCO */
+        .progress-item {
+            margin-bottom: 1.2rem;
+        }
         .progress-header {
             display: flex;
             justify-content: space-between;
             font-size: 0.75rem;
             margin-bottom: 0.25rem;
-            color: #cbd5e1;
+            color: #e2e8f0;  /* BRANCO ACINZENTADO */
         }
         .progress-bar-bg {
             background: #334155;
             border-radius: 0.5rem;
-            height: 0.5rem;
+            height: 0.6rem;
             overflow: hidden;
         }
         .progress-fill {
@@ -316,32 +294,102 @@
             height: 100%;
             border-radius: 0.5rem;
         }
-        .schedule-grid {
+
+        /* Gráfico de Barras - texto BRANCO */
+        .bar-chart {
+            margin: 1rem 0;
+        }
+        .bar-item {
+            margin-bottom: 1rem;
+        }
+        .bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            margin-bottom: 0.25rem;
+            color: #e2e8f0;  /* BRANCO ACINZENTADO */
+        }
+        .bar-bg {
+            background: #334155;
+            border-radius: 0.5rem;
+            height: 1.5rem;
+            overflow: hidden;
+        }
+        .bar-fill {
+            background: linear-gradient(90deg, #60a5fa, #c084fc);
+            height: 100%;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 0.5rem;
+            color: #0f172a;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        /* Gantt - texto BRANCO */
+        .gantt-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .gantt-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gantt-label {
+            width: 140px;
+            font-size: 0.75rem;
+            color: #e2e8f0;
+        }
+        .gantt-bar-container {
+            flex: 1;
+            background: #334155;
+            border-radius: 0.5rem;
+            height: 1.8rem;
+            position: relative;
+        }
+        .gantt-bar {
+            height: 100%;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            padding-left: 0.5rem;
+            font-size: 0.65rem;
+            color: #0f172a;
+            font-weight: 700;
+        }
+        .gantt-bar.completed { background: #10b981; }
+        .gantt-bar.in-progress { background: #f59e0b; }
+        .gantt-bar.planned { background: #64748b; color: white; }
+
+        /* Matriz de Riscos - texto BRANCO */
+        .risk-matrix {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
+            margin-top: 1rem;
         }
-        .schedule-card {
+        .risk-cell {
             background: #1e293b;
             padding: 0.8rem;
             border-radius: 0.75rem;
-            text-align: center;
         }
-        .risk-item {
-            background: #1e293b;
-            padding: 0.6rem;
-            border-radius: 0.5rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .badge-risk {
-            background: #334155;
-            padding: 0.2rem 0.6rem;
-            border-radius: 2rem;
+        .risk-title {
             font-size: 0.7rem;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
         }
+        .risk-value {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #e2e8f0;
+        }
+        .risk-high { color: #f87171; }
+        .risk-medium { color: #fbbf24; }
+        .risk-low { color: #34d399; }
 
         .achievement-list {
             list-style: none;
@@ -351,6 +399,7 @@
             margin-bottom: 0.7rem;
             padding-left: 1.5rem;
             position: relative;
+            color: #334155;
         }
         .achievement-list li::before {
             content: "✓";
@@ -368,13 +417,19 @@
             color: #94a3b8;
             font-size: 0.75rem;
         }
+        .img-caption {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #64748b;
+        }
 
         @media (max-width: 700px) {
             .container { padding: 1rem; }
             .hero { flex-direction: column; text-align: center; padding: 1.5rem; }
             .cta-group { justify-content: center; }
-            .kpi-grid, .schedule-grid { grid-template-columns: 1fr; }
-            .card-title { font-size: 1.1rem; }
+            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+            .risk-matrix { grid-template-columns: 1fr; }
+            .gantt-label { width: 100px; }
             h1 { font-size: 1.8rem; }
         }
     </style>
@@ -391,33 +446,32 @@
     </div>
 
     <script>
-        // CONTEÚDO PORTUGUÊS
         const contentPT = {
             name: "Lucas Portilho",
             tagline: "Transformo dados em decisões estratégicas",
-            description: "Analista de Projetos especializado em Power BI, com experiência em programas complexos de defesa. Entreguei dashboards que reduziram tempo de consolidação de relatórios em 30% e capacitaram 20+ usuários na tomada de decisão.",
+            description: "Analista de Projetos especializado em Power BI e metodologia PMBOK, com experiência em programas complexos de defesa. Entreguei dashboards que reduziram tempo de consolidação de relatórios em 30% e capacitaram 20+ usuários.",
             availability: "🌍 Disponível para projetos globais",
             about: "Sobre mim",
-            aboutText: "Com mais de 3 anos de experiência em gestão de projetos e análise de dados, desenvolvi dashboards interativos que permitem visualização em tempo real de KPIs de produção. Minha atuação no programa da Fragata MEKO A-200 (Marinha do Brasil / TKMS) me preparou para lidar com projetos de alto impacto e times internacionais.",
+            aboutText: "Com mais de 3 anos de experiência em gestão de projetos e análise de dados, aplico boas práticas do PMBOK para estruturar cronogramas, gerenciar riscos e garantir entregas no prazo. Desenvolvi dashboards interativos que permitem visualização em tempo real de KPIs de produção. Minha atuação no programa da Fragata MEKO A-200 (Marinha do Brasil / TKMS) me preparou para lidar com projetos de alto impacto e times internacionais.",
             experienceTitle: "Experiência de Destaque",
             projectName: "Programa Fragata MEKO A-200",
             company: "Marinha do Brasil / TKMS",
             period: "2022 — Presente",
-            projectDesc: "Liderança no desenvolvimento de dashboards Power BI que permitiram à diretoria do programa acompanhar 15+ KPIs de produção, cronograma e custos. Integração de dados entre Primavera P6, Jira e Excel, reduzindo tempo de consolidação de relatórios semanais de 8h para 2h.",
+            projectDesc: "Liderança no desenvolvimento de dashboards Power BI que permitiram à diretoria do programa acompanhar 15+ KPIs de produção, cronograma e custos. Integração de dados entre Primavera P6, Jira e Excel, reduzindo tempo de consolidação de relatórios semanais de 8h para 2h. Aplicação de práticas PMBOK para gestão de riscos e controle de mudanças.",
             specs: "Especificações da Fragata",
-            toolsTitle: "Tecnologias & Ferramentas",
+            toolsTitle: "Tecnologias & Metodologias",
             skills: [
                 { name: "Power BI", icon: "fas fa-chart-line" },
+                { name: "PMBOK", icon: "fas fa-book" },
                 { name: "Microsoft Project", icon: "fas fa-calendar-alt" },
                 { name: "Primavera P6", icon: "fas fa-tasks" },
                 { name: "Jira", icon: "fab fa-jira" },
-                { name: "Excel", icon: "fas fa-file-excel" },
-                { name: "SQL", icon: "fas fa-database" }
+                { name: "Excel", icon: "fas fa-file-excel" }
             ],
-            dashboardTitle: "Dashboard Interativo (demonstração)",
-            dashboardDesc: "Visualize dados reais do projeto. Clique nas abas:",
-            tab1: "📊 Progresso",
-            tab2: "📅 Marcos",
+            dashboardTitle: "Executive Dashboard (Power BI)",
+            dashboardDesc: "Análise de desempenho do programa — dados baseados em indicadores reais",
+            tab1: "📊 Visão Geral",
+            tab2: "📈 Performance",
             tab3: "⚠️ Riscos",
             metrics: [
                 { label: "Comprimento", value: "121m" },
@@ -431,7 +485,8 @@
                 "Integração de 3 sistemas diferentes (Primavera, Jira, Excel)",
                 "Dashboard executivo com 15+ KPIs para diretoria do programa",
                 "Treinamento e capacitação de 20+ usuários",
-                "Interface com stakeholders internacionais (Alemanha)"
+                "Interface com stakeholders internacionais (Alemanha)",
+                "Aplicação de práticas PMBOK em projeto de defesa naval"
             ],
             servicesTitle: "O que posso fazer pelo seu negócio",
             servicesList: [
@@ -439,42 +494,40 @@
                 "✅ Integração de dados entre diferentes fontes (Excel, SQL, Jira, etc.)",
                 "✅ Automação de relatórios e redução de trabalho manual",
                 "✅ Treinamento de equipes para autonomia analítica",
-                "✅ Consultoria em gestão de projetos e cronogramas"
+                "✅ Gestão de projetos com base no PMBOK"
             ],
             ctaText: "Vamos conversar?",
             emailText: "E-mail",
             linkedinText: "LinkedIn",
-            githubText: "GitHub",
-            cvText: "📄 Download CV"
+            githubText: "GitHub"
         };
 
-        // CONTEÚDO INGLÊS
         const contentEN = {
             name: "Lucas Portilho",
             tagline: "Turning Data into Strategic Decisions",
-            description: "Project Analyst specializing in Power BI with experience in complex defense programs. Delivered dashboards that reduced reporting consolidation time by 30% and empowered 20+ users in decision-making.",
+            description: "Project Analyst specializing in Power BI and PMBOK methodology, with experience in complex defense programs. Delivered dashboards reducing reporting consolidation time by 30% and empowering 20+ users.",
             availability: "🌍 Available for global projects",
             about: "About Me",
-            aboutText: "With over 3 years of experience in project management and data analytics, I've developed interactive dashboards that enable real-time production KPI tracking. My work on the MEKO A-200 Frigate program (Brazilian Navy / TKMS) prepared me to handle high-impact projects and international teams.",
+            aboutText: "With over 3 years of experience in project management and data analytics, I apply PMBOK best practices to structure schedules, manage risks, and ensure on-time delivery. I've developed interactive dashboards enabling real-time production KPI tracking. My work on the MEKO A-200 Frigate program (Brazilian Navy/TKMS) prepared me for high-impact projects and international teams.",
             experienceTitle: "Featured Experience",
             projectName: "MEKO A-200 Frigate Program",
             company: "Brazilian Navy / TKMS",
             period: "2022 — Present",
-            projectDesc: "Led Power BI dashboard development enabling program leadership to track 15+ production KPIs, schedule, and costs. Data integration between Primavera P6, Jira, and Excel, reducing weekly reporting consolidation time from 8h to 2h.",
+            projectDesc: "Led Power BI dashboard development enabling program leadership to track 15+ production KPIs, schedule, and costs. Data integration between Primavera P6, Jira, and Excel, reducing weekly reporting consolidation time from 8h to 2h. Application of PMBOK practices for risk management and change control.",
             specs: "Frigate Specifications",
-            toolsTitle: "Tech Stack & Tools",
+            toolsTitle: "Tech Stack & Methodologies",
             skills: [
                 { name: "Power BI", icon: "fas fa-chart-line" },
+                { name: "PMBOK", icon: "fas fa-book" },
                 { name: "Microsoft Project", icon: "fas fa-calendar-alt" },
                 { name: "Primavera P6", icon: "fas fa-tasks" },
                 { name: "Jira", icon: "fab fa-jira" },
-                { name: "Excel", icon: "fas fa-file-excel" },
-                { name: "SQL", icon: "fas fa-database" }
+                { name: "Excel", icon: "fas fa-file-excel" }
             ],
-            dashboardTitle: "Interactive Dashboard (demo)",
-            dashboardDesc: "View real project data. Click tabs:",
-            tab1: "📊 Progress",
-            tab2: "📅 Milestones",
+            dashboardTitle: "Executive Dashboard (Power BI)",
+            dashboardDesc: "Program performance analysis — data based on real indicators",
+            tab1: "📊 Overview",
+            tab2: "📈 Performance",
             tab3: "⚠️ Risks",
             metrics: [
                 { label: "Length", value: "121m" },
@@ -488,7 +541,8 @@
                 "Integration of 3 different systems (Primavera, Jira, Excel)",
                 "Executive dashboard with 15+ KPIs for program leadership",
                 "Training and enablement of 20+ users",
-                "Interface with international stakeholders (Germany)"
+                "International stakeholder management (Germany)",
+                "PMBOK practices applied to naval defense project"
             ],
             servicesTitle: "What I Can Deliver for Your Business",
             servicesList: [
@@ -496,13 +550,12 @@
                 "✅ Data integration across multiple sources (Excel, SQL, Jira, etc.)",
                 "✅ Report automation and manual work reduction",
                 "✅ Team training for analytics autonomy",
-                "✅ Project management and schedule consulting"
+                "✅ Project management based on PMBOK"
             ],
             ctaText: "Let's Talk?",
             emailText: "Email",
             linkedinText: "LinkedIn",
-            githubText: "GitHub",
-            cvText: "📄 Download CV"
+            githubText: "GitHub"
         };
 
         let currentLang = 'pt';
@@ -516,8 +569,7 @@
                     tabs.forEach(t => t.classList.remove('active'));
                     contents.forEach(c => c.classList.remove('active'));
                     tab.classList.add('active');
-                    const activeContent = document.getElementById(`tab-${tabId}`);
-                    if (activeContent) activeContent.classList.add('active');
+                    document.getElementById(`tab-${tabId}`).classList.add('active');
                 });
             });
         }
@@ -525,7 +577,6 @@
         function renderContent() {
             const c = currentLang === 'pt' ? contentPT : contentEN;
             
-            // Placeholder para foto (substitua pelo caminho da sua foto)
             const profilePicHtml = `<img class="profile-pic" src="https://ui-avatars.com/api/?background=1e3a5f&color=fff&name=Lucas+Portilho&size=160" alt="Lucas Portilho">`;
             
             const html = `
@@ -558,7 +609,7 @@
                     <div class="exp-company">${c.company}</div>
                     <p>${c.projectDesc}</p>
                     <img class="frigate-img" src="https://upload.wikimedia.org/wikipedia/commons/6/61/Frigate_Tamandar%C3%A9_arrives_Rio_de_Janeiro_02.jpg" alt="Fragata MEKO A-200">
-                    <div class="img-caption" style="text-align:center; font-size:0.7rem; color:#64748b;">Fragata MEKO A-200 — Classe Tamandaré (Marinha do Brasil)</div>
+                    <div class="img-caption">Fragata MEKO A-200 — Classe Tamandaré (Marinha do Brasil)</div>
                     <div class="metrics-grid">
                         ${c.metrics.map(m => `<div class="metric-card"><div class="metric-number">${m.value}</div><div class="metric-label">${m.label}</div></div>`).join('')}
                     </div>
@@ -567,67 +618,81 @@
                 <div class="card">
                     <div class="card-title"><i class="fas fa-tools"></i> ${c.toolsTitle}</div>
                     <div class="skills-grid">
-                        ${c.skills.map(skill => `
-                            <div class="skill-card">
-                                <i class="${skill.icon} skill-icon"></i>
-                                <span>${skill.name}</span>
-                            </div>
-                        `).join('')}
+                        ${c.skills.map(skill => `<div class="skill-card"><i class="${skill.icon}"></i><span>${skill.name}</span></div>`).join('')}
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-title"><i class="fas fa-chart-pie"></i> ${c.dashboardTitle}</div>
-                    <p style="margin-bottom: 1rem; font-size:0.85rem; color:#64748b;">${c.dashboardDesc}</p>
+                    <p style="margin-bottom:1rem; font-size:0.85rem; color:#64748b;">${c.dashboardDesc}</p>
                     <div class="dashboard-container">
                         <div class="dashboard-tabs">
                             <button class="tab-btn active" data-tab="overview">${c.tab1}</button>
-                            <button class="tab-btn" data-tab="schedule">${c.tab2}</button>
-                            <button class="tab-btn" data-tab="performance">${c.tab3}</button>
+                            <button class="tab-btn" data-tab="performance">${c.tab2}</button>
+                            <button class="tab-btn" data-tab="risks">${c.tab3}</button>
                         </div>
+
                         <div id="tab-overview" class="tab-content active">
                             <div class="kpi-grid">
                                 <div class="kpi-card"><div class="kpi-value">87%</div><div class="kpi-label">Progresso Geral</div></div>
                                 <div class="kpi-card"><div class="kpi-value">42</div><div class="kpi-label">Atividades Concluídas</div></div>
                                 <div class="kpi-card"><div class="kpi-value">8</div><div class="kpi-label">Em Andamento</div></div>
+                                <div class="kpi-card"><div class="kpi-value">-2%</div><div class="kpi-label">Variação de Prazo</div></div>
                             </div>
                             <div class="progress-item"><div class="progress-header"><span>Construção do Casco</span><span>92%</span></div><div class="progress-bar-bg"><div class="progress-fill" style="width:92%"></div></div></div>
                             <div class="progress-item"><div class="progress-header"><span>Sistema de Propulsão</span><span>78%</span></div><div class="progress-bar-bg"><div class="progress-fill" style="width:78%"></div></div></div>
                             <div class="progress-item"><div class="progress-header"><span>Sistema de Combate</span><span>63%</span></div><div class="progress-bar-bg"><div class="progress-fill" style="width:63%"></div></div></div>
+                            <div class="progress-item"><div class="progress-header"><span>Integração de Sistemas</span><span>45%</span></div><div class="progress-bar-bg"><div class="progress-fill" style="width:45%"></div></div></div>
                         </div>
-                        <div id="tab-schedule" class="tab-content">
-                            <div class="schedule-grid">
-                                <div class="schedule-card"><div class="kpi-value">Q1 2024</div><div>Início da Construção</div><div style="color:#10b981;">✅ Concluído</div></div>
-                                <div class="schedule-card"><div class="kpi-value">Q3 2024</div><div>Lançamento ao Mar</div><div style="color:#f59e0b;">🔄 Em andamento</div></div>
-                                <div class="schedule-card"><div class="kpi-value">Q1 2025</div><div>Testes de Mar</div><div style="color:#64748b;">⏳ Planejado</div></div>
-                                <div class="schedule-card"><div class="kpi-value">Q3 2025</div><div>Entrega Oficial</div><div style="color:#64748b;">⏳ Planejado</div></div>
-                            </div>
-                        </div>
+
                         <div id="tab-performance" class="tab-content">
                             <div class="kpi-grid">
-                                <div class="kpi-card"><div class="kpi-value">94%</div><div>Eficiência</div></div>
-                                <div class="kpi-card"><div class="kpi-value">98%</div><div>Conformidade</div></div>
-                                <div class="kpi-card"><div class="kpi-value">€0M</div><div>Variação</div></div>
+                                <div class="kpi-card"><div class="kpi-value">94%</div><div class="kpi-label">Eficiência da Equipe</div></div>
+                                <div class="kpi-card"><div class="kpi-value">98%</div><div class="kpi-label">Conformidade Técnica</div></div>
+                                <div class="kpi-card"><div class="kpi-value">12</div><div class="kpi-label">Fornecedores Ativos</div></div>
+                                <div class="kpi-card"><div class="kpi-value">103%</div><div class="kpi-label">Custo Real vs Orçado</div></div>
                             </div>
-                            <div class="risk-item"><span>Fornecedor de sensores</span><span class="badge-risk">🟡 Médio</span></div>
-                            <div class="risk-item"><span>Disponibilidade de doca seca</span><span class="badge-risk">🟢 Baixo</span></div>
-                            <div class="risk-item"><span>Certificação sistema combate</span><span class="badge-risk">🟡 Médio</span></div>
+                            <div class="bar-chart">
+                                <div class="bar-item"><div class="bar-label"><span>Construção do Casco</span><span>92%</span></div><div class="bar-bg"><div class="bar-fill" style="width:92%">92%</div></div></div>
+                                <div class="bar-item"><div class="bar-label"><span>Propulsão</span><span>78%</span></div><div class="bar-bg"><div class="bar-fill" style="width:78%">78%</div></div></div>
+                                <div class="bar-item"><div class="bar-label"><span>Elétrica</span><span>71%</span></div><div class="bar-bg"><div class="bar-fill" style="width:71%">71%</div></div></div>
+                                <div class="bar-item"><div class="bar-label"><span>Armamento</span><span>58%</span></div><div class="bar-bg"><div class="bar-fill" style="width:58%">58%</div></div></div>
+                                <div class="bar-item"><div class="bar-label"><span>Sistemas de Controle</span><span>44%</span></div><div class="bar-bg"><div class="bar-fill" style="width:44%">44%</div></div></div>
+                            </div>
+                            <h4 style="color:#cbd5e1; margin:1rem 0 0.5rem; font-size:0.8rem;">📅 Cronograma (Gantt)</h4>
+                            <div class="gantt-grid">
+                                <div class="gantt-item"><div class="gantt-label">Construção Casco</div><div class="gantt-bar-container"><div class="gantt-bar completed" style="width:100%">Concluído</div></div></div>
+                                <div class="gantt-item"><div class="gantt-label">Propulsão</div><div class="gantt-bar-container"><div class="gantt-bar in-progress" style="width:78%">78%</div></div></div>
+                                <div class="gantt-item"><div class="gantt-label">Sistema Combate</div><div class="gantt-bar-container"><div class="gantt-bar in-progress" style="width:63%">63%</div></div></div>
+                                <div class="gantt-item"><div class="gantt-label">Testes de Mar</div><div class="gantt-bar-container"><div class="gantt-bar planned" style="width:20%">Q1 2025</div></div></div>
+                            </div>
+                        </div>
+
+                        <div id="tab-risks" class="tab-content">
+                            <div class="kpi-grid">
+                                <div class="kpi-card"><div class="kpi-value">45</div><div class="kpi-label">Riscos Mitigados</div></div>
+                                <div class="kpi-card"><div class="kpi-value">12</div><div class="kpi-label">Riscos Monitorados</div></div>
+                                <div class="kpi-card"><div class="kpi-value">3</div><div class="kpi-label">Riscos Críticos</div></div>
+                                <div class="kpi-card"><div class="kpi-value">95%</div><div class="kpi-label">Eficácia da Mitigação</div></div>
+                            </div>
+                            <div class="risk-matrix">
+                                <div class="risk-cell"><div class="risk-title">🔴 Riscos Altos</div><div class="risk-value risk-high">Fornecedor de sensores - Atraso potencial</div></div>
+                                <div class="risk-cell"><div class="risk-title">🟡 Riscos Médios</div><div class="risk-value risk-medium">Disponibilidade de doca seca / Certificação sistema combate</div></div>
+                                <div class="risk-cell"><div class="risk-title">🟢 Riscos Baixos</div><div class="risk-value risk-low">Flutuação cambial / Rotatividade de equipe</div></div>
+                                <div class="risk-cell"><div class="risk-title">📊 Ações de Mitigação</div><div class="risk-value">Plano de contingência aprovado diretoria</div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-title"><i class="fas fa-trophy"></i> ${c.achievements}</div>
-                    <ul class="achievement-list">
-                        ${c.achievementsList.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
+                    <ul class="achievement-list">${c.achievementsList.map(item => `<li>${item}</li>`).join('')}</ul>
                 </div>
 
                 <div class="card">
                     <div class="card-title"><i class="fas fa-cogs"></i> ${c.servicesTitle}</div>
-                    <div class="skills-grid">
-                        ${c.servicesList.map(service => `<span class="skill-card" style="background:#eef2ff;"><span>${service}</span></span>`).join('')}
-                    </div>
+                    <div class="skills-grid">${c.servicesList.map(service => `<span class="skill-card" style="background:#eef2ff;"><span>${service}</span></span>`).join('')}</div>
                 </div>
 
                 <div class="card" style="text-align: center;">
@@ -640,25 +705,4 @@
                 </div>
             `;
             
-            document.getElementById('content').innerHTML = html;
-            document.getElementById('footer').innerHTML = `<p>© ${new Date().getFullYear()} Lucas Portilho — Power BI Analyst</p>`;
-            
-            initDashboardTabs();
-        }
-
-        document.getElementById('btnPT').onclick = () => {
-            currentLang = 'pt';
-            document.getElementById('btnPT').classList.add('active');
-            document.getElementById('btnEN').classList.remove('active');
-            renderContent();
-        };
-        document.getElementById('btnEN').onclick = () => {
-            currentLang = 'en';
-            document.getElementById('btnEN').classList.add('active');
-            document.getElementById('btnPT').classList.remove('active');
-            renderContent();
-        };
-        renderContent();
-    </script>
-</body>
-</html>
+            document.getElementById
